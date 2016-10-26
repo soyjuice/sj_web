@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>VIJOS P1449 字符串还原 | SoyJuice的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="## 【背景】小K是一位蔚蓝教主的崇拜者(Orz教主er)，有一天，他收到了一封匿名信，信告诉了小K由于他表现出色，得到了一次当面Orz教主的机会，但是要当面Orz教主可不那么容易，不是每个人都有资格Orz教主的。所以要破解下面一段密文才可以得到相关的信息，信中有提供加密的规则，但是小K觉得这个问题看似复杂，所以想请你帮忙。
+
+## 【描述】一个长度为n的由小写字母组成的字符串&amp;lt;span i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIJOS P1449 字符串还原">
+<meta property="og:url" content="http://yoursite.com/2016/09/11/vijos-p1449-字符串还原/index.html">
+<meta property="og:site_name" content="SoyJuice的小站">
+<meta property="og:description" content="## 【背景】小K是一位蔚蓝教主的崇拜者(Orz教主er)，有一天，他收到了一封匿名信，信告诉了小K由于他表现出色，得到了一次当面Orz教主的机会，但是要当面Orz教主可不那么容易，不是每个人都有资格Orz教主的。所以要破解下面一段密文才可以得到相关的信息，信中有提供加密的规则，但是小K觉得这个问题看似复杂，所以想请你帮忙。
+
+## 【描述】一个长度为n的由小写字母组成的字符串&amp;lt;span i">
+<meta property="og:updated_time" content="2016-10-26T09:43:20.218Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VIJOS P1449 字符串还原">
+<meta name="twitter:description" content="## 【背景】小K是一位蔚蓝教主的崇拜者(Orz教主er)，有一天，他收到了一封匿名信，信告诉了小K由于他表现出色，得到了一次当面Orz教主的机会，但是要当面Orz教主可不那么容易，不是每个人都有资格Orz教主的。所以要破解下面一段密文才可以得到相关的信息，信中有提供加密的规则，但是小K觉得这个问题看似复杂，所以想请你帮忙。
+
+## 【描述】一个长度为n的由小写字母组成的字符串&amp;lt;span i">
+  
+  
+    <link rel="icon" href="/images/favicon/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/images/avatar/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soy Juice</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">w&amp;h</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/Test-Reports/">解题报告</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">全部</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/soyjuice" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/soyjuice" title="weibo">weibo</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Soy Juice</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/images/avatar/avatar.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soy Juice</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">w&amp;h</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/Test-Reports/">解题报告</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/soyjuice" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/soyjuice" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-vijos-p1449-字符串还原" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VIJOS P1449 字符串还原
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="colorize"><br><br>## 【背景】<br><br><div class="colorize-content"><br><br>小K是一位蔚蓝教主的崇拜者(Orz教主er)，有一天，他收到了一封匿名信，信告诉了小K由于他表现出色，得到了一次当面Orz教主的机会，但是要当面Orz教主可不那么容易，不是每个人都有资格Orz教主的。所以要破解下面一段密文才可以得到相关的信息，信中有提供加密的规则，但是小K觉得这个问题看似复杂，所以想请你帮忙。<br><br></div><br></div>
+
+<div class="colorize"><br><br>## 【描述】<br><br><div class="colorize-content"><br><br>一个长度为n的由小写字母组成的字符串<code>&lt;span id=&quot;MathJax-Element-1-Frame&quot; class=&quot;MathJax&quot;&gt;&lt;span id=&quot;MathJax-Span-1&quot; class=&quot;math&quot;&gt;&lt;span id=&quot;MathJax-Span-2&quot; class=&quot;mrow&quot;&gt;&lt;span id=&quot;MathJax-Span-3&quot; class=&quot;msubsup&quot;&gt;&lt;span id=&quot;MathJax-Span-4&quot; class=&quot;mi&quot;&gt;S&lt;/span&gt;&lt;span id=&quot;MathJax-Span-5&quot; class=&quot;mn&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;span id=&quot;MathJax-Span-6&quot; class=&quot;mtext&quot;&gt; &lt;/span&gt;&lt;span id=&quot;MathJax-Span-7&quot; class=&quot;msubsup&quot;&gt;&lt;span id=&quot;MathJax-Span-8&quot; class=&quot;mi&quot;&gt;S&lt;/span&gt;&lt;span id=&quot;MathJax-Span-9&quot; class=&quot;mn&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;span id=&quot;MathJax-Span-10&quot; class=&quot;mtext&quot;&gt; &lt;/span&gt;&lt;span id=&quot;MathJax-Span-11&quot; class=&quot;mo&quot;&gt;⋯&lt;/span&gt;&lt;span id=&quot;MathJax-Span-12&quot; class=&quot;mtext&quot;&gt; &lt;/span&gt;&lt;span id=&quot;MathJax-Span-13&quot; class=&quot;msubsup&quot;&gt;&lt;span id=&quot;MathJax-Span-14&quot; class=&quot;mi&quot;&gt;S&lt;/span&gt;&lt;span id=&quot;MathJax-Span-15&quot; class=&quot;mi&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;span id=&quot;MathJax-Span-16&quot; class=&quot;mtext&quot;&gt; S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;MJX_Assistive_MathML&quot;&gt;1 S2 ⋯ Sn &lt;/span&gt;&lt;/span&gt;</code>按如下方式加密成3种形式：<br><br>1、将字符串翻转，即对于每一个<code>&lt;span id=&quot;MathJax-Element-2-Frame&quot; class=&quot;MathJax&quot;&gt;&lt;span id=&quot;MathJax-Span-17&quot; class=&quot;math&quot;&gt;&lt;span id=&quot;MathJax-Span-18&quot; class=&quot;mrow&quot;&gt;&lt;span id=&quot;MathJax-Span-19&quot; class=&quot;mn&quot;&gt;1&lt;/span&gt;&lt;span id=&quot;MathJax-Span-20&quot; class=&quot;mo&quot;&gt;≤&lt;/span&gt;&lt;span id=&quot;MathJax-Span-21&quot; class=&quot;mi&quot;&gt;i&lt;/span&gt;&lt;span id=&quot;MathJax-Span-22&quot; class=&quot;mo&quot;&gt;≤&lt;/span&gt;&lt;span id=&quot;MathJax-Span-23&quot; class=&quot;mi&quot;&gt;n&lt;/span&gt;&lt;span id=&quot;MathJax-Span-24&quot; class=&quot;mtext&quot;&gt; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;MJX_Assistive_MathML&quot;&gt;1≤i≤n &lt;/span&gt;&lt;/span&gt;</code>来说,<code>&lt;span id=&quot;MathJax-Element-3-Frame&quot; class=&quot;MathJax&quot;&gt;&lt;span class=&quot;MJX_Assistive_MathML&quot;&gt;Si&lt;/span&gt;&lt;/span&gt;</code>与<code>&lt;span id=&quot;MathJax-Element-4-Frame&quot; class=&quot;MathJax&quot;&gt;&lt;span id=&quot;MathJax-Span-31&quot; class=&quot;math&quot;&gt;&lt;span id=&quot;MathJax-Span-32&quot; class=&quot;mrow&quot;&gt;&lt;span id=&quot;MathJax-Span-33&quot; class=&quot;msubsup&quot;&gt;&lt;span id=&quot;MathJax-Span-34&quot; class=&quot;mi&quot;&gt;S&lt;/span&gt;&lt;span id=&quot;MathJax-Span-35&quot; class=&quot;texatom&quot;&gt;&lt;span id=&quot;MathJax-Span-36&quot; class=&quot;mrow&quot;&gt;&lt;span id=&quot;MathJax-Span-37&quot; class=&quot;mi&quot;&gt;n&lt;/span&gt;&lt;span id=&quot;MathJax-Span-38&quot; class=&quot;mo&quot;&gt;−&lt;/span&gt;&lt;span id=&quot;MathJax-Span-39&quot; class=&quot;mi&quot;&gt;i&lt;/span&gt;&lt;span id=&quot;MathJax-Span-40&quot; class=&quot;mo&quot;&gt;+&lt;/span&gt;&lt;span id=&quot;MathJax-Span-41&quot; class=&quot;mn&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span id=&quot;MathJax-Span-42&quot; class=&quot;mtext&quot;&gt; S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;MJX_Assistive_MathML&quot;&gt;n−i+1 &lt;/span&gt;&lt;/span&gt;</code>对换。<br><br>2、将字符串中每个字母变为其之后第k个字母，定义z之后的字母为a，其中0≤k≤6且为未知数。<br><br>3、将字符串中每个字母变为其之前第k个字母，定义a之前的字母为z，k同2所述。<br><br>例如字符串abcd按上面3种方式加密后，在<code>&lt;span id=&quot;MathJax-Element-5-Frame&quot; class=&quot;MathJax&quot;&gt;&lt;span class=&quot;MJX_Assistive_MathML&quot;&gt;k=1&lt;/span&gt;&lt;/span&gt;</code>的情况下会依次变为：<br><br>    1、dcba；<br>    2、bcde；<br>    3、zabc。<br><br>现给出信中按以上3种形式分别加密后的3个字符串（不一定按上述例子的顺序），要求还原原来的字符串，并输出告诉小K。<br><br></div><br></div>
+
+<div class="colorize"><br><br>## 【格式】<br><br><div class="colorize-content"><br><br>### 输入格式<br><br><div class="colorize-content"><br><br>输入的第1行为一个整数n，表示这个字符串的长度。<br><br>下面3行每行3个长度为n的字符串，且保证符合题目要求。<br><br></div>
+
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><div class="colorize-content"><br><br>输出仅包括1行，为还原后的字符串。<br><br>## 【样例】<br><br>### 样例输入<br><br><pre class="nowrap">4<br>zabc<br>dcba<br>bcde<br><br>### 样例输出<br><br></pre></div><br></div><br></div>
+
+<pre class="nowrap">abcd
+
+## 【限制】
+
+<div class="colorize-content">
+
+对于10%的数据，输入给出加密字符串的顺序同题目中1、2、3的顺序。
+
+对于20%的数据，n≤5；
+对于40%的数据，n≤10；
+对于60%的数据，n≤255；
+对于100%的数据，n≤10000。
+
+时限1s
+
+## 【分析】
+
+题目分析：三个字符串各有差别，但一个前移一个后移有所联系，可以从此入手；
+
+</div>
+
+算法分析：模拟；
+
+数据分析：数据不算太强；
+
+代码分析：
+
+<pre style="color:#000000;background:transparent;"><span style="color:#004a43;">#</span><span style="color:#004a43;">include</span><span style="color:#800000;">&lt;</span><span style="color:#40015a;">bits/stdc++.h</span><span style="color:#800000;">&gt;</span>
+<span style="color:#800000;font-weight:bold;">using</span> <span style="color:#800000;font-weight:bold;">namespace</span> <span style="color:#666616;">std</span><span style="color:#800080;">;</span>
+
+<span style="color:#800000;font-weight:bold;">inline</span> <span style="color:#800000;font-weight:bold;">int</span> idx<span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">char</span> ch<span style="color:#808030;">)</span>
+<span style="color:#800080;">{</span>
+    <span style="color:#800000;font-weight:bold;">return</span> ch<span style="color:#800080;">;</span>
+<span style="color:#800080;">}</span>
+
+<span style="color:#800000;font-weight:bold;">const</span> <span style="color:#800000;font-weight:bold;">int</span> up<span style="color:#808030;">=</span><span style="color:#008c00;">10000</span> <span style="color:#808030;">+</span><span style="color:#008c00;">10</span><span style="color:#800080;">;</span>
+<span style="color:#800000;font-weight:bold;">char</span> str<span style="color:#808030;">[</span><span style="color:#008c00;">4</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>up<span style="color:#808030;">]</span><span style="color:#800080;">;</span>
+<span style="color:#800000;font-weight:bold;">int</span> n<span style="color:#800080;">;</span>
+
+<span style="color:#800000;font-weight:bold;">bool</span> judge<span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">char</span> a<span style="color:#808030;">,</span> <span style="color:#800000;font-weight:bold;">char</span> b<span style="color:#808030;">,</span> <span style="color:#800000;font-weight:bold;">char</span> c<span style="color:#808030;">)</span>
+<span style="color:#800080;">{</span>
+    <span style="color:#800000;font-weight:bold;">return</span> <span style="color:#808030;">(</span><span style="color:#808030;">(</span><span style="color:#008c00;">2</span><span style="color:#808030;">*</span>idx<span style="color:#808030;">(</span>a<span style="color:#808030;">)</span><span style="color:#808030;">=</span><span style="color:#808030;">=</span>idx<span style="color:#808030;">(</span>b<span style="color:#808030;">)</span><span style="color:#808030;">+</span>idx<span style="color:#808030;">(</span>c<span style="color:#808030;">)</span><span style="color:#808030;">)</span><span style="color:#808030;">|</span><span style="color:#808030;">|</span><span style="color:#808030;">(</span><span style="color:#008c00;">2</span><span style="color:#808030;">*</span>idx<span style="color:#808030;">(</span>a<span style="color:#808030;">)</span><span style="color:#808030;">=</span><span style="color:#808030;">=</span>idx<span style="color:#808030;">(</span>b<span style="color:#808030;">)</span><span style="color:#808030;">+</span>idx<span style="color:#808030;">(</span>c<span style="color:#808030;">)</span><span style="color:#808030;">+</span><span style="color:#008c00;">26</span><span style="color:#808030;">)</span><span style="color:#808030;">|</span><span style="color:#808030;">|</span><span style="color:#808030;">(</span><span style="color:#008c00;">2</span><span style="color:#808030;">*</span>idx<span style="color:#808030;">(</span>a<span style="color:#808030;">)</span><span style="color:#808030;">=</span><span style="color:#808030;">=</span>idx<span style="color:#808030;">(</span>b<span style="color:#808030;">)</span><span style="color:#808030;">+</span>idx<span style="color:#808030;">(</span>c<span style="color:#808030;">)</span><span style="color:#808030;">-</span><span style="color:#008c00;">26</span><span style="color:#808030;">)</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+<span style="color:#800080;">}</span>
+
+<span style="color:#800000;font-weight:bold;">bool</span> check<span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> c<span style="color:#808030;">)</span>
+<span style="color:#800080;">{</span>
+    <span style="color:#800000;font-weight:bold;">int</span> a<span style="color:#808030;">,</span>b<span style="color:#800080;">;</span>
+    <span style="color:#800000;font-weight:bold;">switch</span><span style="color:#808030;">(</span>c<span style="color:#808030;">)</span>
+    <span style="color:#800080;">{</span>
+        <span style="color:#800000;font-weight:bold;">case </span><span style="color:#008c00;">1</span><span style="color:#e34adc;">:</span>a<span style="color:#808030;">=</span><span style="color:#008c00;">2</span><span style="color:#800080;">;</span>b<span style="color:#808030;">=</span><span style="color:#008c00;">3</span><span style="color:#800080;">;</span><span style="color:#800000;font-weight:bold;">break</span><span style="color:#800080;">;</span>
+        <span style="color:#800000;font-weight:bold;">case </span><span style="color:#008c00;">2</span><span style="color:#e34adc;">:</span>a<span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>b<span style="color:#808030;">=</span><span style="color:#008c00;">3</span><span style="color:#800080;">;</span><span style="color:#800000;font-weight:bold;">break</span><span style="color:#800080;">;</span>
+<span style="color:#e34adc;">        </span><span style="color:#800000;font-weight:bold;">default</span><span style="color:#e34adc;">:</span>a<span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>b<span style="color:#808030;">=</span><span style="color:#008c00;">2</span><span style="color:#800080;">;</span>
+    <span style="color:#800080;">}</span>
+    <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> i<span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>i<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span>n<span style="color:#800080;">;</span>i<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span> <span style="color:#800000;font-weight:bold;">if</span><span style="color:#808030;">(</span><span style="color:#808030;">!</span>judge<span style="color:#808030;">(</span>str<span style="color:#808030;">[</span>c<span style="color:#808030;">]</span><span style="color:#808030;">[</span>n<span style="color:#808030;">-</span>i<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">,</span> str<span style="color:#808030;">[</span>a<span style="color:#808030;">]</span><span style="color:#808030;">[</span>i<span style="color:#808030;">]</span><span style="color:#808030;">,</span> str<span style="color:#808030;">[</span>b<span style="color:#808030;">]</span><span style="color:#808030;">[</span>i<span style="color:#808030;">]</span><span style="color:#808030;">)</span><span style="color:#808030;">)</span> <span style="color:#800000;font-weight:bold;">return</span> <span style="color:#800000;font-weight:bold;">false</span><span style="color:#800080;">;</span>
+    <span style="color:#800000;font-weight:bold;">return</span> <span style="color:#800000;font-weight:bold;">true</span><span style="color:#800080;">;</span>
+<span style="color:#800080;">}</span>
+
+<span style="color:#800000;font-weight:bold;">int</span> <span style="color:#400000;">main</span><span style="color:#808030;">(</span><span style="color:#808030;">)</span>
+<span style="color:#800080;">{</span>
+    <span style="color:#800000;font-weight:bold;">int</span> ans<span style="color:#808030;">=</span><span style="color:#008c00;">0</span><span style="color:#800080;">;</span>
+
+    <span style="color:#603000;">scanf</span><span style="color:#808030;">(</span><span style="color:#800000;">"</span><span style="color:#007997;">%d</span><span style="color:#800000;">"</span><span style="color:#808030;">,</span><span style="color:#808030;">&amp;</span>n<span style="color:#808030;">)</span><span style="color:#800080;">;</span><span style="color:#603000;">getchar</span><span style="color:#808030;">(</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> i<span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>i<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span><span style="color:#008c00;">3</span><span style="color:#800080;">;</span>i<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span> <span style="color:#603000;">scanf</span><span style="color:#808030;">(</span><span style="color:#800000;">"</span><span style="color:#007997;">%s</span><span style="color:#800000;">"</span><span style="color:#808030;">,</span>str<span style="color:#808030;">[</span>i<span style="color:#808030;">]</span><span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> i<span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>i<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span><span style="color:#008c00;">2</span><span style="color:#800080;">;</span>i<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span> <span style="color:#800000;font-weight:bold;">if</span><span style="color:#808030;">(</span>check<span style="color:#808030;">(</span>i<span style="color:#808030;">)</span><span style="color:#808030;">)</span>
+    <span style="color:#800080;">{</span>
+        ans<span style="color:#808030;">=</span>i<span style="color:#800080;">;</span>
+        <span style="color:#800000;font-weight:bold;">break</span><span style="color:#800080;">;</span>
+    <span style="color:#800080;">}</span>
+    <span style="color:#800000;font-weight:bold;">if</span><span style="color:#808030;">(</span><span style="color:#808030;">!</span>ans<span style="color:#808030;">)</span> ans<span style="color:#808030;">=</span><span style="color:#008c00;">3</span><span style="color:#800080;">;</span>
+    <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> i<span style="color:#808030;">=</span>n<span style="color:#800080;">;</span>i<span style="color:#808030;">&gt;</span><span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>i<span style="color:#808030;">-</span><span style="color:#808030;">-</span><span style="color:#808030;">)</span> <span style="color:#603000;">printf</span><span style="color:#808030;">(</span><span style="color:#800000;">"</span><span style="color:#007997;">%c</span><span style="color:#800000;">"</span><span style="color:#808030;">,</span>str<span style="color:#808030;">[</span>ans<span style="color:#808030;">]</span><span style="color:#808030;">[</span>i<span style="color:#808030;">]</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+
+    <span style="color:#800000;font-weight:bold;">return</span> <span style="color:#008c00;">0</span><span style="color:#800080;">;</span>
+<span style="color:#800080;">}</span></pre>
+
+
+<p>可以先实验前两个句子的可行性，然后选择正确的那个。</p>
+</pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/11/vijos-p1449-字符串还原/" class="archive-article-date">
+  	<time datetime="2016-09-11T13:00:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-11</time>
+</a>
+      
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/Test-Reports/">Test Reports</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/09/18/停止更新/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          停止更新
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/05/Pre：从零开始的游戏人生（二）游戏画面绘图/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Pre：从零开始的游戏人生（二）游戏画面绘图</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Soy Juice
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: false,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cybeird.tk/">Bird&#39;s blog</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个苦逼的高中生，&lt;br/&gt;被高考鞭挞着前行，&lt;br/&gt;被NOI催促着死亡。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
