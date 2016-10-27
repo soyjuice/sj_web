@@ -9,21 +9,18 @@
   <title>Pre：从零开始的游戏人生（一）Windows API 程序基础 | SoyJuice的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1.1 VC++与Windows API由于计算机游戏融合了大量声音，影像数据的运算处理，因此，流畅度是程序运行时相当重要的一个基本要求。
-为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。
-在VC++IDE中，编写Windows操作系">
+为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pre：从零开始的游戏人生（一）Windows API 程序基础">
 <meta property="og:url" content="http://soyjuice.tk/2016/08/01/Pre：从零开始的游戏人生（一）Windows API 程序基础/index.html">
 <meta property="og:site_name" content="SoyJuice的小站">
 <meta property="og:description" content="1.1 VC++与Windows API由于计算机游戏融合了大量声音，影像数据的运算处理，因此，流畅度是程序运行时相当重要的一个基本要求。
-为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。
-在VC++IDE中，编写Windows操作系">
-<meta property="og:updated_time" content="2016-10-26T09:41:17.881Z">
+为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。">
+<meta property="og:updated_time" content="2016-10-27T03:51:44.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pre：从零开始的游戏人生（一）Windows API 程序基础">
 <meta name="twitter:description" content="1.1 VC++与Windows API由于计算机游戏融合了大量声音，影像数据的运算处理，因此，流畅度是程序运行时相当重要的一个基本要求。
-为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。
-在VC++IDE中，编写Windows操作系">
+为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。">
   
   
     <link rel="icon" href="/images/favicon/favicon.png">
@@ -50,7 +47,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">w&amp;h</p>
+		<p class="header-subtitle">A OIer&#39;s Site</p>
 		
 
 		<nav class="header-menu">
@@ -116,7 +113,7 @@
 			  <h1 class="header-author">Soy Juice</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">w&amp;h</p>
+			<p class="header-subtitle">A OIer&#39;s Site</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -158,17 +155,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1-1-VC-与Windows-API"><a href="#1-1-VC-与Windows-API" class="headerlink" title="1.1 VC++与Windows API"></a>1.1 VC++与Windows API</h1><p>由于计算机游戏融合了大量声音，影像数据的运算处理，因此，流畅度是程序运行时相当重要的一个基本要求。</p>
-<p>为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。</p>
-<p>在VC++IDE中，编写Windows操作系统平台的窗口程序有两种不同的程序架构：一种是微软加入的MFC（Microsoft Foundation Class library）类函数库；另一种便是本文所述的Windows API。</p>
+<p>为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。<br><a id="more"></a><br>在VC++IDE中，编写Windows操作系统平台的窗口程序有两种不同的程序架构：一种是微软加入的MFC（Microsoft Foundation Class library）类函数库；另一种便是本文所述的Windows API。</p>
 <p>其实，Windows API开发并不易，但在游戏开发上却相当简单且具有较优越的运行性能。</p>
 <p>注：所以还是使用VS吧，code::blocks也行，反正都比VC++顺手。</p>
 <h1 id="1-2-构建游戏设计的舞台"><a href="#1-2-构建游戏设计的舞台" class="headerlink" title="1.2 构建游戏设计的舞台"></a>1.2 构建游戏设计的舞台</h1><h2 id="1-2-1-建立程序项目"><a href="#1-2-1-建立程序项目" class="headerlink" title="1.2.1 建立程序项目"></a>1.2.1 建立程序项目</h2><p>如果是在VC++中，可以选择“新建”，然后选择“Win32 Application”，单击【OK】按钮。</p>
 <p>项目建立完成后，可以了解到项目中几个重要的文件：</p>
-<table style="border-collapse:collapse;width:680px;border-spacing:0;orphans:auto;text-align:start;widows:1;height:180px;" border="0" width="384" cellspacing="0" cellpadding="0"><colgroup> <col style="width:48pt;" span="6" width="64"> </colgroup><br><tbody><br><tr style="height:14.4pt;"><br><td class="xl65" style="height:14.4pt;width:48pt;font-size:inherit;" width="64" height="19">canvas.cpp</td><br><td class="xl65" style="width:240pt;font-size:inherit;" colspan="5" width="320">    主程序文件，其中包含整个项目的主程序WinMain</td><br></tr><br><tr style="height:14.4pt;"><br><td class="xl65" style="height:14.4pt;width:48pt;font-size:inherit;" width="64" height="19">canvas.rc</td><br><td class="xl65" style="width:240pt;font-size:inherit;" colspan="5" width="320">    资源文件，定义了整个项目所使用的资源</td><br></tr><br><tr style="height:14.4pt;"><br><td class="xl65" style="height:14.4pt;width:48pt;font-size:inherit;" width="64" height="19">StdAfx.h</td><br><td class="xl65" style="width:240pt;font-size:inherit;" colspan="5" width="320">    标头文件，其中引用整个项目所需的头文件</td><br></tr><br></tbody><br></table>
+<table style="border-collapse:collapse;width:680px;border-spacing:0;orphans:auto;text-align:start;widows:1;height:180px;" border="0" width="384" cellspacing="0" cellpadding="0"><colgroup> <col style="width:48pt;" span="6" width="64"> </colgroup><tbody><tr style="height:14.4pt;"><td class="xl65" style="height:14.4pt;width:48pt;font-size:inherit;" width="64" height="19">canvas.cpp</td><td class="xl65" style="width:240pt;font-size:inherit;" colspan="5" width="320">    主程序文件，其中包含整个项目的主程序WinMain</td></tr><tr style="height:14.4pt;"><td class="xl65" style="height:14.4pt;width:48pt;font-size:inherit;" width="64" height="19">canvas.rc</td><td class="xl65" style="width:240pt;font-size:inherit;" colspan="5" width="320">    资源文件，定义了整个项目所使用的资源</td></tr><tr style="height:14.4pt;"><td class="xl65" style="height:14.4pt;width:48pt;font-size:inherit;" width="64" height="19">StdAfx.h</td><td class="xl65" style="width:240pt;font-size:inherit;" colspan="5" width="320">    标头文件，其中引用整个项目所需的头文件</td></tr></tbody></table>
 
 <p>写完调试好之后，直接摁F5运行即可。</p>
 <h2 id="1-2-2-程序架构说明"><a href="#1-2-2-程序架构说明" class="headerlink" title="1.2.2 程序架构说明"></a>1.2.2 程序架构说明</h2><p>上文中表格便是一个标准的Windows API的程序架构，主程序文件“canvas.cpp”由下表中的几个重要的函数构成。</p>
-<table style="border-collapse:collapse;width:680px;height:218px;" border="0" width="448" cellspacing="0" cellpadding="0"><colgroup> <col style="width:48pt;" span="7" width="64"> </colgroup><br><tbody><br><tr style="height:14.4pt;"><br><td class="xl65" style="height:14.4pt;width:96pt;" colspan="2" width="128" height="19">函数名称</td><br><td class="xl65" style="width:240pt;" colspan="5" width="320">说明</td><br></tr><br><tr style="height:14.4pt;"><br><td style="height:14.4pt;" colspan="2" height="19">WinMain</td><br><td colspan="5">主程序，程序起始点</td><br></tr><br><tr style="height:14.4pt;"><br><td style="height:14.4pt;" colspan="2" height="19">WndProc</td><br><td colspan="5">自定义函数，处理程序消息</td><br></tr><br><tr style="height:14.4pt;"><br><td style="height:14.4pt;" colspan="2" height="19">MyRegisterClass</td><br><td colspan="5">自定义函数，注册窗口类别</td><br></tr><br><tr style="height:14.4pt;"><br><td style="height:14.4pt;" colspan="2" height="19">InitInstance</td><br><td colspan="5">自定义函数，建立及显示窗口的初始化函数</td><br></tr><br></tbody><br></table>
+<table style="border-collapse:collapse;width:680px;height:218px;" border="0" width="448" cellspacing="0" cellpadding="0"><colgroup> <col style="width:48pt;" span="7" width="64"> </colgroup><tbody><tr style="height:14.4pt;"><td class="xl65" style="height:14.4pt;width:96pt;" colspan="2" width="128" height="19">函数名称</td><td class="xl65" style="width:240pt;" colspan="5" width="320">说明</td></tr><tr style="height:14.4pt;"><td style="height:14.4pt;" colspan="2" height="19">WinMain</td><td colspan="5">主程序，程序起始点</td></tr><tr style="height:14.4pt;"><td style="height:14.4pt;" colspan="2" height="19">WndProc</td><td colspan="5">自定义函数，处理程序消息</td></tr><tr style="height:14.4pt;"><td style="height:14.4pt;" colspan="2" height="19">MyRegisterClass</td><td colspan="5">自定义函数，注册窗口类别</td></tr><tr style="height:14.4pt;"><td style="height:14.4pt;" colspan="2" height="19">InitInstance</td><td colspan="5">自定义函数，建立及显示窗口的初始化函数</td></tr></tbody></table>
 
 <h3 id="1-2-2-1-WinMain函数"><a href="#1-2-2-1-WinMain函数" class="headerlink" title="1.2.2.1 WinMain函数"></a>1.2.2.1 WinMain函数</h3><p>主程序，如同Console中的main()函数。</p>
 <pre style="color:#000000;background:transparent;"><span style="color:#800000;font-weight:bold;">int</span> APIENTRY <span style="color:#400000;">WinMain</span> <span style="color:#808030;">(</span><span style="color:#603000;">HINSTANCE</span> hInstance<span style="color:#808030;">,</span> <span style="color:#603000;">HINSTANCE</span> hPrevInstance<span style="color:#808030;">,</span> <span style="color:#603000;">LPSTR</span> lpCmdLine<span style="color:#808030;">,</span> <span style="color:#800000;font-weight:bold;">int</span> nCmdShow<span style="color:#808030;">)</span>
@@ -291,6 +287,11 @@
   	<time datetime="2016-08-01T09:23:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-01</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-C/">Visual C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows-API/">Windows API</a></li></ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 	<i class="icon-price-tags"></i>
@@ -410,7 +411,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				
+    				<a href="/tags/Visual-C/" style="font-size: 10px;">Visual C++</a> <a href="/tags/Windows-API/" style="font-size: 10px;">Windows API</a>
     			</div>
     	</section>
     
@@ -420,7 +421,11 @@
   		
   			<div class="friends-wrap" id="js-friends">
   			
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cybeird.tk/">Bird&#39;s blog</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cybeird.tk/">Bird&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://muzhou.tk/">Muzhou&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/janis_z/">Janis&#39;s Blog</a>
   	        
   	        </div>
   		

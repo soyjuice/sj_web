@@ -8,22 +8,16 @@
   <link rel="dns-prefetch" href="http://soyjuice.tk">
   <title>%I64d &amp; %lld: 64位整数全解 | SoyJuice的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="64位整形引起的混乱主要在两方面，一是数据类型的声明，二是输入输出。
-首先是列举出下表的总结：
-变量定义输出方式gcc(mingw32)g++(mingw32)gcc(linux i386)g++(linux i386)MicrosoftVisual C++ 6.0long long“%lld”错误错误正确正确无法编译long long“%I64d”正确正确错误错误无法编译int64“lld”错误">
+  <meta name="description" content="64位整形引起的混乱主要在两方面，一是数据类型的声明，二是输入输出。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="%I64d & %lld: 64位整数全解">
 <meta property="og:url" content="http://soyjuice.tk/2016/09/24/I64d-and-lld/index.html">
 <meta property="og:site_name" content="SoyJuice的小站">
-<meta property="og:description" content="64位整形引起的混乱主要在两方面，一是数据类型的声明，二是输入输出。
-首先是列举出下表的总结：
-变量定义输出方式gcc(mingw32)g++(mingw32)gcc(linux i386)g++(linux i386)MicrosoftVisual C++ 6.0long long“%lld”错误错误正确正确无法编译long long“%I64d”正确正确错误错误无法编译int64“lld”错误">
-<meta property="og:updated_time" content="2016-10-26T10:35:03.014Z">
+<meta property="og:description" content="64位整形引起的混乱主要在两方面，一是数据类型的声明，二是输入输出。">
+<meta property="og:updated_time" content="2016-10-27T01:11:50.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="%I64d & %lld: 64位整数全解">
-<meta name="twitter:description" content="64位整形引起的混乱主要在两方面，一是数据类型的声明，二是输入输出。
-首先是列举出下表的总结：
-变量定义输出方式gcc(mingw32)g++(mingw32)gcc(linux i386)g++(linux i386)MicrosoftVisual C++ 6.0long long“%lld”错误错误正确正确无法编译long long“%I64d”正确正确错误错误无法编译int64“lld”错误">
+<meta name="twitter:description" content="64位整形引起的混乱主要在两方面，一是数据类型的声明，二是输入输出。">
   
   
     <link rel="icon" href="/images/favicon/favicon.png">
@@ -50,7 +44,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">w&amp;h</p>
+		<p class="header-subtitle">A OIer&#39;s Site</p>
 		
 
 		<nav class="header-menu">
@@ -116,7 +110,7 @@
 			  <h1 class="header-author">Soy Juice</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">w&amp;h</p>
+			<p class="header-subtitle">A OIer&#39;s Site</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -157,8 +151,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>64位整形引起的混乱主要在两方面，一是数据类型的声明，二是输入输出。</p>
-<p>首先是列举出下表的总结：</p>
+        <p>64位整形引起的混乱主要在两方面，一是数据类型的声明，二是输入输出。<br><a id="more"></a><br>首先是列举出下表的总结：</p>
 <table border="1"><tbody><tr><th scope="col">变量定义</th><th scope="col">输出方式</th><th scope="col">gcc(mingw32)</th><th scope="col">g++(mingw32)</th><th scope="col">gcc(linux i386)</th><th scope="col">g++(linux i386)</th><th scope="col">MicrosoftVisual C++ 6.0</th></tr><tr><td>long long</td><td>“%lld”</td><td>错误</td><td>错误</td><td>正确</td><td>正确</td><td>无法编译</td></tr><tr><td>long long</td><td>“%I64d”</td><td>正确</td><td>正确</td><td>错误</td><td>错误</td><td>无法编译</td></tr><tr><td><strong>int64</strong></td><td>“lld”</td><td>错误</td><td>错误</td><td>无法编译</td><td>无法编译</td><td>错误</td></tr><tr><td>int64</td><td>“%I64d”</td><td>正确</td><td>正确</td><td>无法编译</td><td>无法编译</td><td>正确</td></tr><tr><td>long long</td><td>cout</td><td>非C++</td><td>正确</td><td>非C++</td><td>正确</td><td>无法编译</td></tr><tr><td>__int64</td><td>cout</td><td>非C++</td><td>正确</td><td>非C++</td><td>无法编译</td><td>无法编译</td></tr></tbody></table>
 
 <p>可以看出如果我们在自己机器上写程序的话，情况分类如下：</p>
@@ -215,11 +208,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/09/24/无奈/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/26/动态规划专练（二）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          无奈。。。
+          动态规划专练（二）
         
       </div>
     </a>
@@ -319,7 +312,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				
+    				<a href="/tags/Visual-C/" style="font-size: 10px;">Visual C++</a> <a href="/tags/Windows-API/" style="font-size: 10px;">Windows API</a>
     			</div>
     	</section>
     
@@ -329,7 +322,11 @@
   		
   			<div class="friends-wrap" id="js-friends">
   			
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cybeird.tk/">Bird&#39;s blog</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cybeird.tk/">Bird&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://muzhou.tk/">Muzhou&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/janis_z/">Janis&#39;s Blog</a>
   	        
   	        </div>
   		
