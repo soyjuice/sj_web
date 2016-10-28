@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://soyjuice.tk">
+  <title>动态规划专练（二） | SoyJuice的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.数字三角形（一维数组）描述示出了一个数字三角形。 请编一个程序计算从顶至底的某处的一条路径，使该路径所经过的数字的总和最大。每一步可沿左斜线向下或右斜线向下走；1&amp;lt;三角形行数&amp;lt;25；三角形中的数字为整数&amp;lt;1000；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划专练（二）">
+<meta property="og:url" content="http://soyjuice.tk/2016-09/动态规划专练（二）.html/index.html">
+<meta property="og:site_name" content="SoyJuice的小站">
+<meta property="og:description" content="1.数字三角形（一维数组）描述示出了一个数字三角形。 请编一个程序计算从顶至底的某处的一条路径，使该路径所经过的数字的总和最大。每一步可沿左斜线向下或右斜线向下走；1&amp;lt;三角形行数&amp;lt;25；三角形中的数字为整数&amp;lt;1000；">
+<meta property="og:updated_time" content="2016-10-28T00:37:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="动态规划专练（二）">
+<meta name="twitter:description" content="1.数字三角形（一维数组）描述示出了一个数字三角形。 请编一个程序计算从顶至底的某处的一条路径，使该路径所经过的数字的总和最大。每一步可沿左斜线向下或右斜线向下走；1&amp;lt;三角形行数&amp;lt;25；三角形中的数字为整数&amp;lt;1000；">
+  
+  
+    <link rel="icon" href="/images/favicon/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/images/avatar/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soy Juice</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">A OIer&#39;s Site</p>
+		
+		
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/Test-Reports/">解题报告</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">全部</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/soyjuice" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/soyjuice" title="weibo">weibo</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Soy Juice</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/images/avatar/avatar.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soy Juice</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">A OIer&#39;s Site</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/Test-Reports/">解题报告</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/soyjuice" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/soyjuice" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-动态规划专练（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      动态规划专练（二）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-数字三角形（一维数组）"><a href="#1-数字三角形（一维数组）" class="headerlink" title="1.数字三角形（一维数组）"></a>1.数字三角形（一维数组）</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>示出了一个数字三角形。 请编一个程序计算从顶至底的某处的一条路<br>径，使该路径所经过的数字的总和最大。<br>每一步可沿左斜线向下或右斜线向下走；<br>1&lt;三角形行数&lt;25；<br>三角形中的数字为整数&lt;1000；<br><a id="more"></a></p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行为N，表示有N行<br>后面N行表示三角形每条路的路径权</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>路径所经过的数字的总和最大的答案</p>
+<h2 id="测试样例"><a href="#测试样例" class="headerlink" title="测试样例"></a>测试样例</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p> 5<br> 7<br> 3 8<br> 8 1 0<br> 2 7 4 4<br> 4 5 2 6 5</p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p> 30</p>
+<h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>搜索80，记忆化AC。</p>
+<p>代码：</p>
+<pre style="color:#000000;background:transparent;"><span style="color:#004a43;">#</span><span style="color:#004a43;">include</span><span style="color:#800000;">&lt;</span><span style="color:#40015a;">bits/stdc++.h</span><span style="color:#800000;">&gt;</span>
+<span style="color:#800000;font-weight:bold;">using</span> <span style="color:#800000;font-weight:bold;">namespace</span> <span style="color:#666616;">std</span><span style="color:#800080;">;</span>
+
+<span style="color:#800000;font-weight:bold;">const</span> <span style="color:#800000;font-weight:bold;">int</span> up<span style="color:#808030;">=</span><span style="color:#008c00;">30</span><span style="color:#800080;">;</span>
+
+<span style="color:#800000;font-weight:bold;">int</span> <span style="color:#400000;">main</span><span style="color:#808030;">(</span><span style="color:#808030;">)</span> 
+<span style="color:#800080;">{</span>
+    <span style="color:#800000;font-weight:bold;">int</span> a<span style="color:#808030;">[</span>up<span style="color:#808030;">]</span><span style="color:#808030;">,</span>f<span style="color:#808030;">[</span>up<span style="color:#808030;">]</span><span style="color:#808030;">,</span>n<span style="color:#808030;">,</span>ans<span style="color:#808030;">=</span><span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>
+    <span style="color:#603000;">memset</span><span style="color:#808030;">(</span>a<span style="color:#808030;">,</span><span style="color:#008c00;">0</span><span style="color:#808030;">,</span><span style="color:#800000;font-weight:bold;">sizeof</span> a<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    <span style="color:#603000;">memset</span><span style="color:#808030;">(</span>f<span style="color:#808030;">,</span><span style="color:#008c00;">0</span><span style="color:#808030;">,</span><span style="color:#800000;font-weight:bold;">sizeof</span> f<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+
+    <span style="color:#603000;">cin</span><span style="color:#808030;">&gt;</span><span style="color:#808030;">&gt;</span>n<span style="color:#800080;">;</span>
+    <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> i<span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>i<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span>n<span style="color:#800080;">;</span>i<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span>
+    <span style="color:#800080;">{</span>
+        <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> j<span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>j<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span>i<span style="color:#800080;">;</span>j<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span> <span style="color:#603000;">cin</span><span style="color:#808030;">&gt;</span><span style="color:#808030;">&gt;</span>a<span style="color:#808030;">[</span>j<span style="color:#808030;">]</span><span style="color:#800080;">;</span>
+        <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> j<span style="color:#808030;">=</span>i<span style="color:#800080;">;</span>j<span style="color:#808030;">&gt;</span><span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>j<span style="color:#808030;">-</span><span style="color:#808030;">-</span><span style="color:#808030;">)</span> f<span style="color:#808030;">[</span>j<span style="color:#808030;">]</span><span style="color:#808030;">=</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span>f<span style="color:#808030;">[</span>j<span style="color:#808030;">]</span><span style="color:#808030;">,</span>f<span style="color:#808030;">[</span>j<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">)</span><span style="color:#808030;">+</span>a<span style="color:#808030;">[</span>j<span style="color:#808030;">]</span><span style="color:#800080;">;</span>
+    <span style="color:#800080;">}</span>
+
+    <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> i<span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>i<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span>n<span style="color:#800080;">;</span>i<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span> ans<span style="color:#808030;">=</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span>ans<span style="color:#808030;">,</span>f<span style="color:#808030;">[</span>i<span style="color:#808030;">]</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    <span style="color:#603000;">cout</span><span style="color:#808030;">&lt;</span><span style="color:#808030;">&lt;</span>ans<span style="color:#808030;">&lt;</span><span style="color:#808030;">&lt;</span><span style="color:#603000;">endl</span><span style="color:#800080;">;</span>
+
+    <span style="color:#800000;font-weight:bold;">return</span> <span style="color:#008c00;">0</span><span style="color:#800080;">;</span>
+<span style="color:#800080;">}</span></pre>
+
+
+<h1 id="2-三取方格数"><a href="#2-三取方格数" class="headerlink" title="2.三取方格数"></a>2.三取方格数</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>JerryZhou同学经常改编习题给自己做。</p>
+<p>这天，他又改编了一题。。。。。</p>
+<h2 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h2><p>设有N*N的方格图，我们将其中的某些方格填入正整数，<br>而其他的方格中放入0。</p>
+<p>某人从图得左上角出发，可以向下走，也可以向右走，直到到达右下角。</p>
+<p>在走过的路上，他取走了方格中的数。（取走后方格中数字变为0）<br>此人从左上角到右下角共走3次，试找出3条路径，使得取得的数总和最大。</p>
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行:N (4&lt;=N&lt;=20)<br>接下来一个N*N的矩阵，矩阵中每个元素不超过80，不小于0</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>一行，表示最大的总和。</p>
+<h2 id="测试样例-1"><a href="#测试样例-1" class="headerlink" title="测试样例"></a>测试样例</h2><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><p>4<br>1 2 3 4<br>2 1 3 4<br>1 2 3 4<br>1 3 2 4</p>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><p>39</p>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>各个测试点1s</p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>多进程DP</p>
+<p>代码：</p>
+<pre style="color:#000000;background:transparent;"><span style="color:#004a43;">#</span><span style="color:#004a43;">include</span><span style="color:#800000;">&lt;</span><span style="color:#40015a;">bits/stdc++.h</span><span style="color:#800000;">&gt;</span>
+<span style="color:#800000;font-weight:bold;">using</span> <span style="color:#800000;font-weight:bold;">namespace</span> <span style="color:#666616;">std</span><span style="color:#800080;">;</span>
+
+<span style="color:#800000;font-weight:bold;">const</span> <span style="color:#800000;font-weight:bold;">int</span> up<span style="color:#808030;">=</span><span style="color:#008c00;">20</span> <span style="color:#808030;">+</span><span style="color:#008c00;">5</span><span style="color:#800080;">;</span>
+
+<span style="color:#800000;font-weight:bold;">int</span> n<span style="color:#808030;">,</span>a<span style="color:#808030;">[</span>up<span style="color:#808030;">]</span><span style="color:#808030;">[</span>up<span style="color:#808030;">]</span><span style="color:#808030;">,</span>f<span style="color:#808030;">[</span><span style="color:#008c00;">2</span><span style="color:#808030;">*</span>up<span style="color:#808030;">]</span><span style="color:#808030;">[</span>up<span style="color:#808030;">]</span><span style="color:#808030;">[</span>up<span style="color:#808030;">]</span><span style="color:#808030;">[</span>up<span style="color:#808030;">]</span><span style="color:#800080;">;</span>
+
+<span style="color:#800000;font-weight:bold;">int</span> <span style="color:#400000;">main</span><span style="color:#808030;">(</span><span style="color:#808030;">)</span>
+<span style="color:#800080;">{</span>
+    <span style="color:#603000;">scanf</span><span style="color:#808030;">(</span><span style="color:#800000;">"</span><span style="color:#007997;">%d</span><span style="color:#800000;">"</span><span style="color:#808030;">,</span><span style="color:#808030;">&amp;</span>n<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> i<span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>i<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span>n<span style="color:#800080;">;</span>i<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span>
+        <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> j<span style="color:#808030;">=</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>j<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span>n<span style="color:#800080;">;</span>j<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span>
+            <span style="color:#603000;">scanf</span><span style="color:#808030;">(</span><span style="color:#800000;">"</span><span style="color:#007997;">%d</span><span style="color:#800000;">"</span><span style="color:#808030;">,</span><span style="color:#808030;">&amp;</span>a<span style="color:#808030;">[</span>i<span style="color:#808030;">]</span><span style="color:#808030;">[</span>j<span style="color:#808030;">]</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    f<span style="color:#808030;">[</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">=</span>a<span style="color:#808030;">[</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#800080;">;</span>
+
+    <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> s<span style="color:#808030;">=</span><span style="color:#008c00;">2</span><span style="color:#800080;">;</span>s<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span><span style="color:#008c00;">2</span><span style="color:#808030;">*</span>n<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#800080;">;</span>s<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span>
+        <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> x1<span style="color:#808030;">=</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span><span style="color:#008c00;">1</span><span style="color:#808030;">,</span>s<span style="color:#808030;">-</span>n<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>x1<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span><span style="color:#603000;">min</span><span style="color:#808030;">(</span>n<span style="color:#808030;">,</span>s<span style="color:#808030;">)</span><span style="color:#800080;">;</span>x1<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span>
+            <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> x2<span style="color:#808030;">=</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span><span style="color:#008c00;">1</span><span style="color:#808030;">,</span>s<span style="color:#808030;">-</span>n<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>x2<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span><span style="color:#603000;">min</span><span style="color:#808030;">(</span>n<span style="color:#808030;">,</span>s<span style="color:#808030;">)</span><span style="color:#800080;">;</span>x2<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span>
+                <span style="color:#800000;font-weight:bold;">for</span><span style="color:#808030;">(</span><span style="color:#800000;font-weight:bold;">int</span> x3<span style="color:#808030;">=</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span><span style="color:#008c00;">1</span><span style="color:#808030;">,</span>s<span style="color:#808030;">-</span>n<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>x3<span style="color:#808030;">&lt;</span><span style="color:#808030;">=</span><span style="color:#603000;">min</span><span style="color:#808030;">(</span>n<span style="color:#808030;">,</span>s<span style="color:#808030;">)</span><span style="color:#800080;">;</span>x3<span style="color:#808030;">+</span><span style="color:#808030;">+</span><span style="color:#808030;">)</span>
+                <span style="color:#800080;">{</span>
+                    <span style="color:#696969;">//s=x+y-1</span>
+                    <span style="color:#800000;font-weight:bold;">int</span> mid<span style="color:#808030;">=</span>a<span style="color:#808030;">[</span>x1<span style="color:#808030;">]</span><span style="color:#808030;">[</span>s<span style="color:#808030;">-</span>x1<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">+</span>a<span style="color:#808030;">[</span>x2<span style="color:#808030;">]</span><span style="color:#808030;">[</span>s<span style="color:#808030;">-</span>x2<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">+</span>a<span style="color:#808030;">[</span>x3<span style="color:#808030;">]</span><span style="color:#808030;">[</span>s<span style="color:#808030;">-</span>x3<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#800080;">;</span>
+                    <span style="color:#800000;font-weight:bold;">if</span><span style="color:#808030;">(</span>x1<span style="color:#808030;">=</span><span style="color:#808030;">=</span>x2<span style="color:#808030;">)</span> mid<span style="color:#808030;">-</span><span style="color:#808030;">=</span>a<span style="color:#808030;">[</span>x1<span style="color:#808030;">]</span><span style="color:#808030;">[</span>s<span style="color:#808030;">-</span>x1<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#800080;">;</span>
+                    <span style="color:#800000;font-weight:bold;">if</span><span style="color:#808030;">(</span>x1<span style="color:#808030;">=</span><span style="color:#808030;">=</span>x3<span style="color:#808030;">)</span> mid<span style="color:#808030;">-</span><span style="color:#808030;">=</span>a<span style="color:#808030;">[</span>x1<span style="color:#808030;">]</span><span style="color:#808030;">[</span>s<span style="color:#808030;">-</span>x1<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#800080;">;</span>
+                    <span style="color:#800000;font-weight:bold;">if</span><span style="color:#808030;">(</span>x2<span style="color:#808030;">=</span><span style="color:#808030;">=</span>x3<span style="color:#808030;">)</span> mid<span style="color:#808030;">-</span><span style="color:#808030;">=</span>a<span style="color:#808030;">[</span>x2<span style="color:#808030;">]</span><span style="color:#808030;">[</span>s<span style="color:#808030;">-</span>x2<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#800080;">;</span>
+                    <span style="color:#800000;font-weight:bold;">if</span><span style="color:#808030;">(</span>x1<span style="color:#808030;">=</span><span style="color:#808030;">=</span>x2 <span style="color:#808030;">&amp;</span><span style="color:#808030;">&amp;</span> x2<span style="color:#808030;">=</span><span style="color:#808030;">=</span>x3<span style="color:#808030;">)</span> mid<span style="color:#808030;">+</span><span style="color:#808030;">=</span>a<span style="color:#808030;">[</span>x1<span style="color:#808030;">]</span><span style="color:#808030;">[</span>s<span style="color:#808030;">-</span>x1<span style="color:#808030;">+</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#800080;">;</span><span style="color:#696969;">//容斥原理</span>
+                    f<span style="color:#808030;">[</span>s<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x1<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x2<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x3<span style="color:#808030;">]</span><span style="color:#808030;">=</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span>f<span style="color:#808030;">[</span>s<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x1<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x2<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x3<span style="color:#808030;">]</span><span style="color:#808030;">,</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span>f<span style="color:#808030;">[</span>s<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x1<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x2<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x3<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">,</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span>f<span style="color:#808030;">[</span>s<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x1<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x2<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x3<span style="color:#808030;">]</span><span style="color:#808030;">,</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span>f<span style="color:#808030;">[</span>s<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x1<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x2<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x3<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">,</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span>f<span style="color:#808030;">[</span>s<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x1<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x2<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x3<span style="color:#808030;">]</span><span style="color:#808030;">,</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span>f<span style="color:#808030;">[</span>s<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x1<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x2<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x3<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">,</span><span style="color:#603000;">max</span><span style="color:#808030;">(</span>f<span style="color:#808030;">[</span>s<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x1<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x2<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x3<span style="color:#808030;">]</span><span style="color:#808030;">,</span>f<span style="color:#808030;">[</span>s<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x1<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x2<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>x3<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">)</span><span style="color:#808030;">)</span><span style="color:#808030;">)</span><span style="color:#808030;">)</span><span style="color:#808030;">)</span><span style="color:#808030;">)</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+                    f<span style="color:#808030;">[</span>s<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x1<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x2<span style="color:#808030;">]</span><span style="color:#808030;">[</span>x3<span style="color:#808030;">]</span><span style="color:#808030;">+</span><span style="color:#808030;">=</span>mid<span style="color:#800080;">;</span>
+                <span style="color:#800080;">}</span>
+
+    <span style="color:#603000;">printf</span><span style="color:#808030;">(</span><span style="color:#800000;">"</span><span style="color:#007997;">%d</span><span style="color:#800000;">"</span><span style="color:#808030;">,</span>f<span style="color:#808030;">[</span><span style="color:#008c00;">2</span><span style="color:#808030;">*</span>n<span style="color:#808030;">-</span><span style="color:#008c00;">1</span><span style="color:#808030;">]</span><span style="color:#808030;">[</span>n<span style="color:#808030;">]</span><span style="color:#808030;">[</span>n<span style="color:#808030;">]</span><span style="color:#808030;">[</span>n<span style="color:#808030;">]</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+
+    <span style="color:#800000;font-weight:bold;">return</span> <span style="color:#008c00;">0</span><span style="color:#800080;">;</span>
+<span style="color:#800080;">}</span></pre>
+
+<p><strong>注</strong>：</p>
+<p>思路与传纸条和方格取数相似，但由于数组维数过高（6维）无法直接声明，所以只能压缩维度。<br>通过分析，可以发现y坐标直接与x坐标相关，可以通过步数算出y坐标，同理，x坐标也可以被y坐标算出，这里姑且使用x坐标作为另外三个维度。</p>
+<p>循环的时候x从1到n，用x=max(1,s-n+1)，其中1是防止x越界，s-n+1是防止y越界；因为s=x+y-1，所以y=s-x+1&lt;=n，s-n+1&lt;=x，用x&lt;=min(n,s)是防止x越界。</p>
+<p><strong>另外，分享一份网络流的题解（<a href="https://vijos.org/user/101292" target="_blank" rel="external">wang_yanheng</a>）：</strong></p>
+<blockquote>
+<p>把MAX_CAPACITY改成任意正整数k，即可实现k取方格数<br>主要思路就是拆点构图。<br>把每个点 x 拆成 x1, x2，x1与x2之间有：</p>
+<ul>
+<li>一条容量为1，价值为x权值的边</li>
+<li>一条容量为MAX_CAPACITY，价值为0的边</li>
+</ul>
+<p>假设y, z分别为 x 右侧、下方的点，把 x2 与 y1、x2 与 z1 各连一条边，容量为MAX_CAPACITY，价值为0<br>最后加上源点与汇点，最大费用流即可。我使用了SPFA寻找最长价值的路径。</p>
+<p>解释一下变量含义：</p>
+<ul>
+<li>edge类型中，next指向的是同一起点的下一条边在E中的位置</li>
+<li>E是边集，size 是 E 的大小</li>
+<li>headIndex[i] 指向的是起点为 i 的头一条边在E中的位置</li>
+<li>used, dist, queue, prev 用于最长路算法，其中 prev[i] 记录最长路中通往点 i 的边在E中的位置</li>
+</ul>
+</blockquote>
+<pre style="color:#000000;background:#ffffff;"><span style="color:#004a43; ">#</span><span style="color:#004a43; ">include </span><span style="color:#800000; ">&lt;</span><span style="color:#40015a; ">bits/stdc++.h</span><span style="color:#800000; ">></span>
+<span style="color:#004a43; ">#</span><span style="color:#004a43; ">define</span><span style="color:#004a43; "> NIL </span><span style="color:#808030; ">-</span><span style="color:#004a43; ">1</span>
+<span style="color:#004a43; ">#</span><span style="color:#004a43; ">define</span><span style="color:#004a43; "> MAX_CAPACITY 3</span>
+<span style="color:#004a43; ">#</span><span style="color:#004a43; ">define</span><span style="color:#004a43; "> INF 10000000</span>
+<span style="color:#004a43; ">#</span><span style="color:#004a43; ">define</span><span style="color:#004a43; "> MIN</span><span style="color:#808030; ">(</span><span style="color:#004a43; ">a</span><span style="color:#808030; ">,</span><span style="color:#004a43; ">b</span><span style="color:#808030; ">)</span><span style="color:#004a43; "> </span><span style="color:#808030; ">(</span><span style="color:#808030; ">(</span><span style="color:#004a43; ">a</span><span style="color:#808030; ">)</span><span style="color:#808030; ">&lt;</span><span style="color:#808030; ">(</span><span style="color:#004a43; ">b</span><span style="color:#808030; ">)</span><span style="color:#808030; ">?</span><span style="color:#808030; ">(</span><span style="color:#004a43; ">a</span><span style="color:#808030; ">)</span><span style="color:#808030; ">:</span><span style="color:#808030; ">(</span><span style="color:#004a43; ">b</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span>
+<span style="color:#800000; font-weight:bold; ">using</span> <span style="color:#800000; font-weight:bold; ">namespace</span> <span style="color:#666616; ">std</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">typedef</span> <span style="color:#800000; font-weight:bold; ">struct</span><span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">int</span> next<span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">int</span> from<span style="color:#808030; ">,</span> to<span style="color:#808030; ">,</span> value<span style="color:#808030; ">,</span> f<span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span> edge<span style="color:#800080; ">;</span>
+
+edge E<span style="color:#808030; ">[</span><span style="color:#008c00; ">5000</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">int</span> headIndex<span style="color:#808030; ">[</span><span style="color:#008c00; ">1000</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">int</span> size <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">short</span> used<span style="color:#808030; ">[</span><span style="color:#008c00; ">1000</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">int</span> <span style="color:#603000; ">queue</span><span style="color:#808030; ">[</span><span style="color:#008c00; ">10000</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">int</span> dist<span style="color:#808030; ">[</span><span style="color:#008c00; ">1000</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">int</span> prev<span style="color:#808030; ">[</span><span style="color:#008c00; ">1000</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">void</span> addEdge1<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> from<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> to<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> value<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> capacity<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">void</span> addEdge<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> from<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> to<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> value<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> capacity<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">int</span> maxPath<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> source<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> sink<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> numV<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">int</span> maxValueFlow<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> source<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> sink<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> numV<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+<span style="color:#800000; font-weight:bold; ">int</span> <span style="color:#400000; ">main</span><span style="color:#808030; ">(</span><span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">int</span> n<span style="color:#808030; ">,</span> numV<span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">int</span> x<span style="color:#808030; ">,</span> y<span style="color:#808030; ">,</span> source<span style="color:#808030; ">,</span> sink<span style="color:#808030; ">,</span> value<span style="color:#800080; ">;</span>
+
+    <span style="color:#603000; ">scanf</span><span style="color:#808030; ">(</span><span style="color:#800000; ">"</span><span style="color:#007997; ">%d</span><span style="color:#800000; ">"</span><span style="color:#808030; ">,</span> <span style="color:#808030; ">&amp;</span>n<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+
+    <span style="color:#696969; ">/*initialize*/</span>
+    <span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span>x<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> x<span style="color:#808030; ">&lt;</span><span style="color:#008c00; ">1000</span><span style="color:#800080; ">;</span> x<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span>
+        headIndex<span style="color:#808030; ">[</span>x<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> NIL<span style="color:#800080; ">;</span>
+
+    <span style="color:#696969; ">/*build the network*/</span>
+    numV <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span>x<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> x<span style="color:#808030; ">&lt;</span>n<span style="color:#800080; ">;</span> x<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+        <span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span>y<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> y<span style="color:#808030; ">&lt;</span>n<span style="color:#800080; ">;</span> y<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+            <span style="color:#603000; ">scanf</span><span style="color:#808030; ">(</span><span style="color:#800000; ">"</span><span style="color:#007997; ">%d</span><span style="color:#800000; ">"</span><span style="color:#808030; ">,</span> <span style="color:#808030; ">&amp;</span>value<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            addEdge<span style="color:#808030; ">(</span>numV<span style="color:#808030; ">,</span> numV<span style="color:#808030; ">+</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span> value<span style="color:#808030; ">,</span> <span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>  <span style="color:#696969; ">//connect numV &amp; numV+1</span>
+            addEdge<span style="color:#808030; ">(</span>numV<span style="color:#808030; ">,</span> numV<span style="color:#808030; ">+</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">,</span> MAX_CAPACITY<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">if</span><span style="color:#808030; ">(</span>x <span style="color:#808030; ">&lt;</span> n<span style="color:#808030; ">-</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span>
+                addEdge<span style="color:#808030; ">(</span>numV<span style="color:#808030; ">+</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span> numV<span style="color:#808030; ">+</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">*</span>n<span style="color:#808030; ">,</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">,</span> MAX_CAPACITY<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>  <span style="color:#696969; ">//connnect numV+1 &amp; its downer neighbour, if exists</span>
+            <span style="color:#800000; font-weight:bold; ">if</span><span style="color:#808030; ">(</span>y <span style="color:#808030; ">&lt;</span> n<span style="color:#808030; ">-</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span>
+                addEdge<span style="color:#808030; ">(</span>numV<span style="color:#808030; ">+</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span> numV<span style="color:#808030; ">+</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">,</span> MAX_CAPACITY<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>  <span style="color:#696969; ">//connnect numV+1 &amp; its righter neighbour, if exists</span>
+            numV <span style="color:#808030; ">+</span><span style="color:#808030; ">=</span> <span style="color:#008c00; ">2</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+    <span style="color:#800080; ">}</span>
+    source <span style="color:#808030; ">=</span> numV<span style="color:#808030; ">,</span> sink <span style="color:#808030; ">=</span> numV<span style="color:#808030; ">+</span><span style="color:#008c00; ">1</span><span style="color:#800080; ">;</span>
+    addEdge<span style="color:#808030; ">(</span>source<span style="color:#808030; ">,</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">,</span> MAX_CAPACITY<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>  <span style="color:#696969; ">//source</span>
+    addEdge<span style="color:#808030; ">(</span>numV<span style="color:#808030; ">-</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span> sink<span style="color:#808030; ">,</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">,</span> MAX_CAPACITY<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>  <span style="color:#696969; ">//sink</span>
+
+    <span style="color:#696969; ">/*solve*/</span>
+    <span style="color:#603000; ">printf</span><span style="color:#808030; ">(</span><span style="color:#800000; ">"</span><span style="color:#007997; ">%d</span><span style="color:#0f69ff; ">\n</span><span style="color:#800000; ">"</span><span style="color:#808030; ">,</span> maxValueFlow<span style="color:#808030; ">(</span>source<span style="color:#808030; ">,</span> sink<span style="color:#808030; ">,</span> numV<span style="color:#808030; ">+</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">)</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">return</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+<span style="color:#800000; font-weight:bold; ">void</span> addEdge1<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> from<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> to<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> value<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> capacity<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+    E<span style="color:#808030; ">[</span>size<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>from <span style="color:#808030; ">=</span> from<span style="color:#800080; ">;</span>
+    E<span style="color:#808030; ">[</span>size<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>to <span style="color:#808030; ">=</span> to<span style="color:#800080; ">;</span>
+    E<span style="color:#808030; ">[</span>size<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>value <span style="color:#808030; ">=</span> value<span style="color:#800080; ">;</span>
+    E<span style="color:#808030; ">[</span>size<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>f <span style="color:#808030; ">=</span> capacity<span style="color:#800080; ">;</span>
+    E<span style="color:#808030; ">[</span>size<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>next <span style="color:#808030; ">=</span> headIndex<span style="color:#808030; ">[</span>from<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+    headIndex<span style="color:#808030; ">[</span>from<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> size<span style="color:#800080; ">;</span>
+    size<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+<span style="color:#800000; font-weight:bold; ">void</span> addEdge<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> from<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> to<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> value<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> capacity<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+    addEdge1<span style="color:#808030; ">(</span>from<span style="color:#808030; ">,</span> to<span style="color:#808030; ">,</span> value<span style="color:#808030; ">,</span> capacity<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    addEdge1<span style="color:#808030; ">(</span>to<span style="color:#808030; ">,</span> from<span style="color:#808030; ">,</span> <span style="color:#808030; ">-</span>value<span style="color:#808030; ">,</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+<span style="color:#800000; font-weight:bold; ">int</span> maxPath<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> source<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> sink<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> numV<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">int</span> i<span style="color:#808030; ">,</span> head <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">,</span> tail <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span>i<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span> i<span style="color:#808030; ">&lt;</span>numV<span style="color:#800080; ">;</span> i<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+        used<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+        prev<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> NIL<span style="color:#800080; ">;</span>
+        dist<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> <span style="color:#808030; ">-</span>INF<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+    dist<span style="color:#808030; ">[</span>source<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+    <span style="color:#603000; ">queue</span><span style="color:#808030; ">[</span>tail<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> source<span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">while</span><span style="color:#808030; ">(</span>head <span style="color:#808030; ">&lt;</span> tail<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+        source <span style="color:#808030; ">=</span> <span style="color:#603000; ">queue</span><span style="color:#808030; ">[</span>head<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+        used<span style="color:#808030; ">[</span>source<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+        i <span style="color:#808030; ">=</span> headIndex<span style="color:#808030; ">[</span>source<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">while</span><span style="color:#808030; ">(</span>i <span style="color:#808030; ">!</span><span style="color:#808030; ">=</span> NIL<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+            <span style="color:#800000; font-weight:bold; ">if</span><span style="color:#808030; ">(</span>E<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>f <span style="color:#808030; ">></span> <span style="color:#008c00; ">0</span> <span style="color:#808030; ">&amp;</span><span style="color:#808030; ">&amp;</span> dist<span style="color:#808030; ">[</span>E<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>to<span style="color:#808030; ">]</span> <span style="color:#808030; ">&lt;</span> dist<span style="color:#808030; ">[</span>source<span style="color:#808030; ">]</span> <span style="color:#808030; ">+</span> E<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>value<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+                dist<span style="color:#808030; ">[</span>E<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>to<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> dist<span style="color:#808030; ">[</span>source<span style="color:#808030; ">]</span> <span style="color:#808030; ">+</span> E<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>value<span style="color:#800080; ">;</span>
+                prev<span style="color:#808030; ">[</span>E<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>to<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> i<span style="color:#800080; ">;</span>
+                <span style="color:#800000; font-weight:bold; ">if</span><span style="color:#808030; ">(</span><span style="color:#808030; ">!</span>used<span style="color:#808030; ">[</span>E<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>to<span style="color:#808030; ">]</span><span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+                    <span style="color:#603000; ">queue</span><span style="color:#808030; ">[</span>tail<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> E<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>to<span style="color:#800080; ">;</span>
+                    used<span style="color:#808030; ">[</span>E<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>to<span style="color:#808030; ">]</span> <span style="color:#808030; ">=</span> <span style="color:#008c00; ">1</span><span style="color:#800080; ">;</span>
+                <span style="color:#800080; ">}</span>
+            <span style="color:#800080; ">}</span>
+            i <span style="color:#808030; ">=</span> E<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>next<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+        head<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+    <span style="color:#800000; font-weight:bold; ">return</span> dist<span style="color:#808030; ">[</span>sink<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+<span style="color:#800000; font-weight:bold; ">int</span> maxValueFlow<span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> source<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> sink<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">int</span> numV<span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">int</span> path<span style="color:#808030; ">,</span> v<span style="color:#808030; ">,</span> augment<span style="color:#808030; ">,</span> value<span style="color:#808030; ">,</span> ret <span style="color:#808030; ">=</span> <span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">while</span><span style="color:#808030; ">(</span><span style="color:#808030; ">(</span>value <span style="color:#808030; ">=</span> maxPath<span style="color:#808030; ">(</span>source<span style="color:#808030; ">,</span> sink<span style="color:#808030; ">,</span> numV<span style="color:#808030; ">)</span><span style="color:#808030; ">)</span> <span style="color:#808030; ">></span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+        augment <span style="color:#808030; ">=</span> INF<span style="color:#800080; ">;</span>
+        <span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span>v<span style="color:#808030; ">=</span>sink<span style="color:#800080; ">;</span> v<span style="color:#808030; ">!</span><span style="color:#808030; ">=</span>source<span style="color:#800080; ">;</span> <span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+            path <span style="color:#808030; ">=</span> prev<span style="color:#808030; ">[</span>v<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+            augment <span style="color:#808030; ">=</span> MIN<span style="color:#808030; ">(</span>augment<span style="color:#808030; ">,</span> E<span style="color:#808030; ">[</span>path<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>f<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+            v <span style="color:#808030; ">=</span> E<span style="color:#808030; ">[</span>path<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>from<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+        <span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span>v<span style="color:#808030; ">=</span>sink<span style="color:#800080; ">;</span> v<span style="color:#808030; ">!</span><span style="color:#808030; ">=</span>source<span style="color:#800080; ">;</span> <span style="color:#808030; ">)</span><span style="color:#800080; ">{</span>
+            path <span style="color:#808030; ">=</span> prev<span style="color:#808030; ">[</span>v<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+            E<span style="color:#808030; ">[</span>path<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>f <span style="color:#808030; ">-</span><span style="color:#808030; ">=</span> augment<span style="color:#800080; ">;</span>
+            E<span style="color:#808030; ">[</span>path<span style="color:#808030; ">^</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>f <span style="color:#808030; ">+</span><span style="color:#808030; ">=</span> augment<span style="color:#800080; ">;</span>
+            v <span style="color:#808030; ">=</span> E<span style="color:#808030; ">[</span>path<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>from<span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+        ret <span style="color:#808030; ">+</span><span style="color:#808030; ">=</span> value<span style="color:#808030; ">*</span>augment<span style="color:#800080; ">;</span>
+    <span style="color:#800080; ">}</span>
+    <span style="color:#800000; font-weight:bold; ">return</span> ret<span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+</pre>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016-09/动态规划专练（二）.html/" class="archive-article-date">
+  	<time datetime="2016-09-26T02:30:57.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-26</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/Test-Reports/">Test Reports</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016-09/轻（lan）松（ren）预编译法.html/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          轻（lan）松（ren）预编译法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016-09/I64d-and-lld.html/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">%I64d &amp; %lld: 64位整数全解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="动态规划专练（二）" data-title="动态规划专练（二）" data-url="http://soyjuice.tk/2016-09/动态规划专练（二）.html/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"soyjuice"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=0 height=0 src="http://music.163.com/outchain/player?type=2&id=426881487&auto=1&height=32"></iframe>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Soy Juice
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: false,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/PTGLFZ/" style="font-size: 13.33px;">PTGLFZ</a> <a href="/tags/动态规划/" style="font-size: 20px;">动态规划</a> <a href="/tags/图论/" style="font-size: 10px;">图论</a> <a href="/tags/多路归并/" style="font-size: 16.67px;">多路归并</a> <a href="/tags/字符串/" style="font-size: 10px;">字符串</a> <a href="/tags/数学/" style="font-size: 16.67px;">数学</a> <a href="/tags/暴力/" style="font-size: 13.33px;">暴力</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cybeird.tk/">Bird&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://muzhou.tk/">Muzhou&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/janis_z/">Janis&#39;s Blog</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个苦逼的高中生，&lt;br/&gt;被高考鞭挞着前行，&lt;br/&gt;被NOI催促着死亡。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
