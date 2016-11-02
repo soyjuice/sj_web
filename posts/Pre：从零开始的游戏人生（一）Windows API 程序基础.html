@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="">
+  <title>Pre：从零开始的游戏人生（一）Windows API 程序基础 | SoyJuice的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.1 VC++与Windows API由于计算机游戏融合了大量声音，影像数据的运算处理，因此，流畅度是程序运行时相当重要的一个基本要求。
+为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pre：从零开始的游戏人生（一）Windows API 程序基础">
+<meta property="og:url" content="/posts/Pre：从零开始的游戏人生（一）Windows API 程序基础.html">
+<meta property="og:site_name" content="SoyJuice的小站">
+<meta property="og:description" content="1.1 VC++与Windows API由于计算机游戏融合了大量声音，影像数据的运算处理，因此，流畅度是程序运行时相当重要的一个基本要求。
+为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。">
+<meta property="og:updated_time" content="2016-11-02T10:03:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pre：从零开始的游戏人生（一）Windows API 程序基础">
+<meta name="twitter:description" content="1.1 VC++与Windows API由于计算机游戏融合了大量声音，影像数据的运算处理，因此，流畅度是程序运行时相当重要的一个基本要求。
+为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。">
+  
+  
+    <link rel="icon" href="/images/favicon/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/images/avatar/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soy Juice</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">A OIer&#39;s Site</p>
+		
+
+		<form action="/search/" method="get" style="text-align: center">
+    	<input type="text" class="st-default-search-input search" id="search" placeholder=" Search..." name="query" style="border-top: none;border-right: none;border-left: none;"/>
+		</form>
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/Test-Reports/">解题报告</a></li>
+	        
+				<li><a href="/teries/">娱乐</a></li>
+	        
+			</ul>
+		</nav>
+
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">全部</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/soyjuice" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/soyjuice" title="weibo">weibo</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Soy Juice</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/images/avatar/avatar.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soy Juice</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">A OIer&#39;s Site</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/Test-Reports/">解题报告</a></li>
+		        
+					<li><a href="/teries/">娱乐</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/soyjuice" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/soyjuice" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Pre：从零开始的游戏人生（一）Windows API 程序基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Pre：从零开始的游戏人生（一）Windows API 程序基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-1-VC-与Windows-API"><a href="#1-1-VC-与Windows-API" class="headerlink" title="1.1 VC++与Windows API"></a>1.1 VC++与Windows API</h1><p>由于计算机游戏融合了大量声音，影像数据的运算处理，因此，流畅度是程序运行时相当重要的一个基本要求。</p>
+<p>为了达到这项要求，目前一般的大型游戏软件开发大多采用VC++（Visual C++）程序开发工具与Windows API（Application Program Interface）程序框架来编写，以提高运行效率。<br><a id="more"></a><br>在VC++IDE中，编写Windows操作系统平台的窗口程序有两种不同的程序架构：一种是微软加入的MFC（Microsoft Foundation Class library）类函数库；另一种便是本文所述的Windows API。</p>
+<p>其实，Windows API开发并不易，但在游戏开发上却相当简单且具有较优越的运行性能。</p>
+<p>注：所以还是使用VS吧，code::blocks也行，反正都比VC++顺手。</p>
+<h1 id="1-2-构建游戏设计的舞台"><a href="#1-2-构建游戏设计的舞台" class="headerlink" title="1.2 构建游戏设计的舞台"></a>1.2 构建游戏设计的舞台</h1><h2 id="1-2-1-建立程序项目"><a href="#1-2-1-建立程序项目" class="headerlink" title="1.2.1 建立程序项目"></a>1.2.1 建立程序项目</h2><p>如果是在VC++中，可以选择“新建”，然后选择“Win32 Application”，单击【OK】按钮。</p>
+<p>项目建立完成后，可以了解到项目中几个重要的文件：</p>
+<table style="border-collapse:collapse;width:680px;border-spacing:0;orphans:auto;text-align:start;widows:1;height:180px;" border="0" width="384" cellspacing="0" cellpadding="0"><colgroup> <col style="width:48pt;" span="6" width="64"> </colgroup><tbody><tr style="height:14.4pt;"><td class="xl65" style="height:14.4pt;width:48pt;font-size:inherit;" width="64" height="19">canvas.cpp</td><td class="xl65" style="width:240pt;font-size:inherit;" colspan="5" width="320">    主程序文件，其中包含整个项目的主程序WinMain</td></tr><tr style="height:14.4pt;"><td class="xl65" style="height:14.4pt;width:48pt;font-size:inherit;" width="64" height="19">canvas.rc</td><td class="xl65" style="width:240pt;font-size:inherit;" colspan="5" width="320">    资源文件，定义了整个项目所使用的资源</td></tr><tr style="height:14.4pt;"><td class="xl65" style="height:14.4pt;width:48pt;font-size:inherit;" width="64" height="19">StdAfx.h</td><td class="xl65" style="width:240pt;font-size:inherit;" colspan="5" width="320">    标头文件，其中引用整个项目所需的头文件</td></tr></tbody></table>
+
+<p>写完调试好之后，直接摁F5运行即可。</p>
+<h2 id="1-2-2-程序架构说明"><a href="#1-2-2-程序架构说明" class="headerlink" title="1.2.2 程序架构说明"></a>1.2.2 程序架构说明</h2><p>上文中表格便是一个标准的Windows API的程序架构，主程序文件“canvas.cpp”由下表中的几个重要的函数构成。</p>
+<table style="border-collapse:collapse;width:680px;height:218px;" border="0" width="448" cellspacing="0" cellpadding="0"><colgroup> <col style="width:48pt;" span="7" width="64"> </colgroup><tbody><tr style="height:14.4pt;"><td class="xl65" style="height:14.4pt;width:96pt;" colspan="2" width="128" height="19">函数名称</td><td class="xl65" style="width:240pt;" colspan="5" width="320">说明</td></tr><tr style="height:14.4pt;"><td style="height:14.4pt;" colspan="2" height="19">WinMain</td><td colspan="5">主程序，程序起始点</td></tr><tr style="height:14.4pt;"><td style="height:14.4pt;" colspan="2" height="19">WndProc</td><td colspan="5">自定义函数，处理程序消息</td></tr><tr style="height:14.4pt;"><td style="height:14.4pt;" colspan="2" height="19">MyRegisterClass</td><td colspan="5">自定义函数，注册窗口类别</td></tr><tr style="height:14.4pt;"><td style="height:14.4pt;" colspan="2" height="19">InitInstance</td><td colspan="5">自定义函数，建立及显示窗口的初始化函数</td></tr></tbody></table>
+
+<h3 id="1-2-2-1-WinMain函数"><a href="#1-2-2-1-WinMain函数" class="headerlink" title="1.2.2.1 WinMain函数"></a>1.2.2.1 WinMain函数</h3><p>主程序，如同Console中的main()函数。</p>
+<pre style="color:#000000;background:transparent;"><span style="color:#800000;font-weight:bold;">int</span> APIENTRY <span style="color:#400000;">WinMain</span> <span style="color:#808030;">(</span><span style="color:#603000;">HINSTANCE</span> hInstance<span style="color:#808030;">,</span> <span style="color:#603000;">HINSTANCE</span> hPrevInstance<span style="color:#808030;">,</span> <span style="color:#603000;">LPSTR</span> lpCmdLine<span style="color:#808030;">,</span> <span style="color:#800000;font-weight:bold;">int</span> nCmdShow<span style="color:#808030;">)</span>
+<span style="color:#800080;">{</span>
+    <span style="color:#603000;">MSG</span> msg<span style="color:#800080;">;</span>
+    MyRegisterClass <span style="color:#808030;">(</span>hInstance<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+
+    <span style="color:#800000;font-weight:bold;">if</span> <span style="color:#808030;">(</span><span style="color:#808030;">!</span>InitInstance <span style="color:#808030;">(</span>hInstance<span style="color:#808030;">,</span> nCmdShow<span style="color:#808030;">)</span><span style="color:#808030;">)</span>
+    <span style="color:#800080;">{</span>
+        <span style="color:#800000;font-weight:bold;">return</span> FALSE<span style="color:#800080;">;</span>
+    <span style="color:#800080;">}</span>
+
+    <span style="color:#800000;font-weight:bold;">while</span> <span style="color:#808030;">(</span><span style="color:#400000;">GetMessage</span> <span style="color:#808030;">(</span><span style="color:#808030;">&amp;</span>msg<span style="color:#808030;">,</span> <span style="color:#7d0045;">NULL</span><span style="color:#808030;">,</span> <span style="color:#008c00;">0</span><span style="color:#808030;">,</span> <span style="color:#008c00;">0</span><span style="color:#808030;">)</span><span style="color:#808030;">)</span>
+    <span style="color:#800080;">{</span>
+        <span style="color:#400000;">TranslateMessage</span> <span style="color:#808030;">(</span><span style="color:#808030;">&amp;</span>msg<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+        <span style="color:#400000;">DispatchMessage</span> <span style="color:#808030;">(</span><span style="color:#808030;">&amp;</span>msg<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    <span style="color:#800080;">}</span>
+
+    <span style="color:#800000;font-weight:bold;">return</span> msg<span style="color:#808030;">.</span>wParam<span style="color:#800080;">;</span>
+<span style="color:#800080;">}</span></pre>
+
+
+<p>程序说明：</p>
+<p>(1)调用MyRegisterClass()函数，向系统注册窗口类别，输入参数“hInstance”是目前运行个体的对象代码。</p>
+<p>(2)调用InitInstance()函数，进行初始化操作。</p>
+<p>(3)通过此消息循环来获取消息，并进行必要的键盘消息转换，而后将控制权交给操作系统，由操作系统决定该由哪个程序的消息处理程序，这个循环使用下述的API函数4,5,6。</p>
+<p>(4)GetMessage()，获取程序消息。</p>
+<p>(5)TranslateMessage()，转换伪码及字符。</p>
+<p>(6)DispatchMessage()，将控制权交给系统，再由系统决定负责处理消息的程序。</p>
+<h3 id="1-2-2-2-MyRegisterClass-函数"><a href="#1-2-2-2-MyRegisterClass-函数" class="headerlink" title="1.2.2.2 MyRegisterClass()函数"></a>1.2.2.2 MyRegisterClass()函数</h3><p>在建立程序窗口的实体前，必须先定义一个窗口类别，其中包含所要建立窗口的相关信息。</p>
+<pre style="color:#000000;background:transparent;"><span style="color:#603000;">ATOM</span> MyRegisterClass <span style="color:#808030;">(</span><span style="color:#603000;">HINSTANCE</span> hInstance<span style="color:#808030;">)</span>
+<span style="color:#800080;">{</span>
+    <span style="color:#603000;">WNDCLASSEX</span> wcex<span style="color:#800080;">;</span>
+
+    wcex<span style="color:#808030;">.</span>cbSize <span style="color:#808030;">=</span> <span style="color:#800000;font-weight:bold;">sizeof</span><span style="color:#808030;">(</span><span style="color:#603000;">WNDCLASSEX</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>style <span style="color:#808030;">=</span> CS_HREDRAW <span style="color:#808030;">|</span> CS_VREDRAW<span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>lpfnWndProc <span style="color:#808030;">=</span> <span style="color:#808030;">(</span><span style="color:#603000;">WNDPROC</span><span style="color:#808030;">)</span>WndProc<span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>cbClsExtra <span style="color:#808030;">=</span> <span style="color:#008c00;">0</span><span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>cbWndExtra <span style="color:#808030;">=</span> <span style="color:#008c00;">0</span><span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>hInstance <span style="color:#808030;">=</span> hInstance<span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>hIcon <span style="color:#808030;">=</span> <span style="color:#7d0045;">NULL</span><span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>hCursor <span style="color:#808030;">=</span> <span style="color:#7d0045;">NULL</span><span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>hCursor <span style="color:#808030;">=</span> <span style="color:#400000;">LoadCursor</span><span style="color:#808030;">(</span><span style="color:#7d0045;">NULL</span><span style="color:#808030;">,</span> IDC_ARROW<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>hbrBackground <span style="color:#808030;">=</span> <span style="color:#808030;">(</span><span style="color:#603000;">HBRUSH</span><span style="color:#808030;">)</span><span style="color:#808030;">(</span>COLOR_WINDOW <span style="color:#808030;">+</span> <span style="color:#008c00;">1</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>lpszMenuName <span style="color:#808030;">=</span> <span style="color:#7d0045;">NULL</span><span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>lpszClassName <span style="color:#808030;">=</span> <span style="color:#800000;">"</span><span style="color:#0000e6;">canvas</span><span style="color:#800000;">"</span><span style="color:#800080;">;</span>
+    wcex<span style="color:#808030;">.</span>hIconSm <span style="color:#808030;">=</span> <span style="color:#7d0045;">NULL</span><span style="color:#800080;">;</span>
+
+    <span style="color:#800000;font-weight:bold;">return</span> <span style="color:#400000;">RegisterClassEx</span><span style="color:#808030;">(</span><span style="color:#808030;">&amp;</span>wcex<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+<span style="color:#800080;">}</span></pre>
+
+
+<p>程序说明：</p>
+<p>(1)声明一个窗口类别“WNDCLASSEX”和结构“wcex”。</p>
+<p>(2)定义“wcex”中的各项信息，其中设定消息处理函数（lpfnWndProc）为“WndProc”，类别名称（lpszClassName）为“canvas”。</p>
+<p>(3)调用RegisterClassEx()函数注册类别，返回一个“ATOM”形态的字符串，即为类别名称“canvas”。</p>
+<h3 id="1-2-2-3-InitInstance-函数"><a href="#1-2-2-3-InitInstance-函数" class="headerlink" title="1.2.2.3 InitInstance()函数"></a>1.2.2.3 InitInstance()函数</h3><p>在这一初始函数中，按照前面所定义的窗口类别来建立并显示实际的程序窗口。</p>
+<pre style="color:#000000;background:transparent;"><span style="color:#603000;">BOOL</span> InitInstance <span style="color:#808030;">(</span><span style="color:#603000;">HINSTANCE</span> hInstance<span style="color:#808030;">,</span> <span style="color:#800000;font-weight:bold;">int</span> nCmdShow<span style="color:#808030;">)</span>
+<span style="color:#800080;">{</span>
+    <span style="color:#603000;">HWND</span> hWnd<span style="color:#800080;">;</span>
+
+    hInst <span style="color:#808030;">=</span> hInstance<span style="color:#800080;">;</span>
+
+    hWnd <span style="color:#808030;">=</span> <span style="color:#400000;">CreateWindow</span><span style="color:#808030;">(</span><span style="color:#800000;">"</span><span style="color:#0000e6;">canvas</span><span style="color:#800000;">"</span><span style="color:#808030;">,</span> <span style="color:#800000;">"</span><span style="color:#0000e6;">A2's Ghost</span><span style="color:#800000;">"</span><span style="color:#808030;">,</span> <span style="color:#7d0045;">WS_OVERLAPPEDWINDOW</span><span style="color:#808030;">,</span> CW_USEDEFAULT<span style="color:#808030;">,</span> <span style="color:#008c00;">0</span><span style="color:#808030;">,</span> CW_USEDEFAULT<span style="color:#808030;">,</span> <span style="color:#008c00;">0</span><span style="color:#808030;">,</span> <span style="color:#7d0045;">NULL</span><span style="color:#808030;">,</span> <span style="color:#7d0045;">NULL</span><span style="color:#808030;">,</span> hInstance<span style="color:#808030;">,</span> <span style="color:#7d0045;">NULL</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+
+    <span style="color:#800000;font-weight:bold;">if</span><span style="color:#808030;">(</span><span style="color:#808030;">!</span>hWnd<span style="color:#808030;">)</span>
+    <span style="color:#800080;">{</span>
+        <span style="color:#800000;font-weight:bold;">return</span> FALSE<span style="color:#800080;">;</span>
+    <span style="color:#800080;">}</span>
+
+    <span style="color:#400000;">MoveWindow</span><span style="color:#808030;">(</span>hWnd<span style="color:#808030;">,</span> <span style="color:#008c00;">10</span><span style="color:#808030;">,</span> <span style="color:#008c00;">10</span><span style="color:#808030;">,</span> <span style="color:#008c00;">600</span><span style="color:#808030;">,</span> <span style="color:#008c00;">450</span><span style="color:#808030;">,</span> <span style="color:#800000;font-weight:bold;">true</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    <span style="color:#400000;">ShowWindow</span><span style="color:#808030;">(</span>hWnd<span style="color:#808030;">,</span> nCmdShow<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    <span style="color:#400000;">UpdateWindow</span><span style="color:#808030;">(</span>hWnd<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+
+    <span style="color:#800000;font-weight:bold;">return</span> TRUE<span style="color:#800080;">;</span>
+<span style="color:#800080;">}</span></pre>
+
+
+<p>程序说明：</p>
+<p>(1)调用CreateWindow()函数来创建一个窗口对象，所输入的第一个参数就是窗口建立所依据的类别名称，也就是前面程序所定义的“canvas”。</p>
+<p>(2)设定窗口的显示位置及窗口大小，然后绘制在显示设备上，使用了下述API函数。</p>
+<p>(3)MoveWindow()，设定窗口显示的位置及窗口大小。</p>
+<p>(4)ShowWindow()，设定窗口显示时的状态。</p>
+<p>(5)UpdateWindow()，将窗口绘制在显示设备上。</p>
+<h3 id="1-2-2-4-WndProc-函数"><a href="#1-2-2-4-WndProc-函数" class="headerlink" title="1.2.2.4 WndProc()函数"></a>1.2.2.4 WndProc()函数</h3><p>前面设定的时候把WndProc定义为消息处理函数，也就是当某些外部消息发生时，会按照消息的类型来决定该如何进行处理，除此之外，WndProc也是一个回叫函数（CALLBACK）是属于Windows操作系统所调用的函数，而非程序本身调用的程序。</p>
+<pre style="color:#000000;background:transparent;"><span style="color:#603000;">LRESULT</span> <span style="color:#603000;">CALLBACK</span> WndProc<span style="color:#808030;">(</span><span style="color:#603000;">HWND</span> hWnd<span style="color:#808030;">,</span> <span style="color:#603000;">UINT</span> message<span style="color:#808030;">,</span> <span style="color:#603000;">WPARAM</span> wParam<span style="color:#808030;">,</span> <span style="color:#603000;">LPARAM</span> lParam<span style="color:#808030;">)</span>
+<span style="color:#800080;">{</span>
+    <span style="color:#603000;">PAINTSTRUCT</span> ps<span style="color:#800080;">;</span>
+    <span style="color:#603000;">HDC</span> hdc<span style="color:#800080;">;</span>
+
+    <span style="color:#800000;font-weight:bold;">switch</span> <span style="color:#808030;">(</span>message<span style="color:#808030;">)</span><span style="color:#696969;">//(1)</span>
+    <span style="color:#800080;">{</span>
+        <span style="color:#800000;font-weight:bold;">case </span><span style="color:#7d0045;">WM_PAINT</span><span style="color:#e34adc;">:</span><span style="color:#696969;">//(2)</span>
+            hdc <span style="color:#808030;">=</span> <span style="color:#400000;">BeginPaint</span> <span style="color:#808030;">(</span>hWnd<span style="color:#808030;">,</span> <span style="color:#808030;">&amp;</span>ps<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+            <span style="color:#400000;">EndPaint</span> <span style="color:#808030;">(</span>hWnd<span style="color:#808030;">,</span> <span style="color:#808030;">&amp;</span>ps<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+            <span style="color:#800000;font-weight:bold;">break</span><span style="color:#800080;">;</span>
+        <span style="color:#800000;font-weight:bold;">case </span><span style="color:#7d0045;">WM_DESTROY</span><span style="color:#e34adc;">:</span><span style="color:#696969;">//(3)</span>
+            <span style="color:#400000;">PostQuitMessage</span> <span style="color:#808030;">(</span><span style="color:#008c00;">0</span><span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+            <span style="color:#800000;font-weight:bold;">break</span><span style="color:#800080;">;</span>
+        <span style="color:#800000;font-weight:bold;">default</span><span style="color:#e34adc;">:</span><span style="color:#696969;">//(4)</span>
+            <span style="color:#800000;font-weight:bold;">return</span> <span style="color:#400000;">DefWindowProc</span> <span style="color:#808030;">(</span>hWnd<span style="color:#808030;">,</span> message<span style="color:#808030;">,</span> wParam<span style="color:#808030;">,</span> lParam<span style="color:#808030;">)</span><span style="color:#800080;">;</span>
+    <span style="color:#800080;">}</span>
+
+    <span style="color:#800000;font-weight:bold;">return</span> <span style="color:#008c00;">0</span><span style="color:#800080;">;</span>
+<span style="color:#800080;">}</span></pre>
+
+
+<p>程序说明：</p>
+<p>(1)判断消息类型。</p>
+<p>(2)处理窗口重绘消息。</p>
+<p>(3)处理窗口结束消息。</p>
+<p>(4)使用函数调用预设的系统函数处理程序本身不处理的消息。</p>
+<h1 id="1-3-总结"><a href="#1-3-总结" class="headerlink" title="1.3 总结"></a>1.3 总结</h1><p>本文讨论了VC++在游戏开发上所具备的优点，并快速地浏览了API程序的基本框架，希望可以对观看此文的人有所帮助。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/posts/Pre：从零开始的游戏人生（一）Windows API 程序基础.html" class="archive-article-date">
+  	<time datetime="2016-08-01T09:23:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-01</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PTGLFZ/">PTGLFZ</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/Pre-The-Game-Life-From-Zero/">Pre:The Game Life From Zero</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/posts/Pre：从零开始的游戏人生（二）游戏画面绘图.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Pre：从零开始的游戏人生（二）游戏画面绘图
+        
+      </div>
+    </a>
+  
+  
+    <a href="/posts/COGS P1 A+B Problem.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">COGS P1 A+B Problem</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Pre：从零开始的游戏人生（一）Windows API 程序基础" data-title="Pre：从零开始的游戏人生（一）Windows API 程序基础" data-url="/posts/Pre：从零开始的游戏人生（一）Windows API 程序基础.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"soyjuice"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=0 height=0 src="http://music.163.com/outchain/player?type=2&id=426881487&auto=1&height=32"></iframe>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015~2016 Soy Juice
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: false,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/PTGLFZ/" style="font-size: 13.33px;">PTGLFZ</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/动态规划/" style="font-size: 20px;">动态规划</a> <a href="/tags/图论/" style="font-size: 10px;">图论</a> <a href="/tags/多路归并/" style="font-size: 16.67px;">多路归并</a> <a href="/tags/字符串/" style="font-size: 10px;">字符串</a> <a href="/tags/数学/" style="font-size: 16.67px;">数学</a> <a href="/tags/暴力/" style="font-size: 13.33px;">暴力</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cybeird.tk/">Bird&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://muzhou.tk/">Muzhou&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/janis_z/">Janis&#39;s Blog</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个苦逼的高中生，&lt;br/&gt;被高考鞭挞着前行，&lt;br/&gt;被NOI催促着死亡。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
