@@ -14,7 +14,7 @@
 <meta property="og:url" content="/posts/Vijos-p1037-双塔构建.html">
 <meta property="og:site_name" content="SoyJuice的小站">
 <meta property="og:description" content="描述2001年9月11日，一场突发的灾难将纽约世界贸易中心大厦夷为平地，Mr.F曾亲眼目睹了这次灾难。为了纪念“9?11”事件，Mr. F决定自己用水晶来搭建一座双塔。Mr. F有N块水晶，每块水晶有一个高度，他想用这N块水晶搭建两座有同样高度的塔，使他们成为一座双塔，Mr. F可以从这N块水晶中任取M（1≤M≤N）块来搭建。但是他不知道能否使两座塔有同样的高度，也不知道如果能搭建成一座双塔，这座">
-<meta property="og:updated_time" content="2016-11-02T11:04:34.000Z">
+<meta property="og:updated_time" content="2016-11-04T03:32:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vijos P1037 构建双塔">
 <meta name="twitter:description" content="描述2001年9月11日，一场突发的灾难将纽约世界贸易中心大厦夷为平地，Mr.F曾亲眼目睹了这次灾难。为了纪念“9?11”事件，Mr. F决定自己用水晶来搭建一座双塔。Mr. F有N块水晶，每块水晶有一个高度，他想用这N块水晶搭建两座有同样高度的塔，使他们成为一座双塔，Mr. F可以从这N块水晶中任取M（1≤M≤N）块来搭建。但是他不知道能否使两座塔有同样的高度，也不知道如果能搭建成一座双塔，这座">
@@ -34,6 +34,8 @@
   <link href="//cdn.bootcss.com/offline-js/0.7.14/themes/offline-theme-chrome.css" rel="stylesheet"/>
   <!--动画效果-->
   <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet"/>
+  <!--代码合并-->
+  <script src="../js/merge.js"></script>
 </head>
 
 <body>
@@ -178,7 +180,9 @@
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><h3 id="题目分析："><a href="#题目分析：" class="headerlink" title="题目分析："></a>题目分析：</h3><p>数据太水，暴力。</p>
 <h3 id="算法分析："><a href="#算法分析：" class="headerlink" title="算法分析："></a>算法分析：</h3><p>暴力。</p>
 <h3 id="数据分析："><a href="#数据分析：" class="headerlink" title="数据分析："></a>数据分析：</h3><p>太水。</p>
-<h3 id="代码分析："><a href="#代码分析：" class="headerlink" title="代码分析："></a>代码分析：</h3><pre style="color:#000000;background:#ffffff;"><span style="color:#004a43; ">#</span><span style="color:#004a43; ">include</span><span style="color:#800000; ">&lt;</span><span style="color:#40015a; ">cstdio</span><span style="color:#800000; ">></span><span style="color:#004a43; ">  </span>
+<h3 id="代码分析："><a href="#代码分析：" class="headerlink" title="代码分析："></a>代码分析：</h3><p><input id="code_pre2" class="code_button" type="button" onclick="open_code(2)" value="Code+"></p>
+<p><input id="code_re2" class="code_button" type="button" onclick="merge_code(2)" value="Code-" style="display:none;"></p>
+<pre id="code_set2" style="display:none;color:#000000;background:#ffffff;"><span style="color:#004a43; ">#</span><span style="color:#004a43; ">include</span><span style="color:#800000; ">&lt;</span><span style="color:#40015a; ">cstdio</span><span style="color:#800000; ">></span><span style="color:#004a43; ">  </span>
 <span style="color:#800000; font-weight:bold; ">using</span> <span style="color:#800000; font-weight:bold; ">namespace</span> <span style="color:#666616; ">std</span><span style="color:#800080; ">;</span>  
 
 <span style="color:#800000; font-weight:bold; ">bool</span> inq<span style="color:#808030; ">[</span>N<span style="color:#808030; ">]</span><span style="color:#808030; ">[</span>N<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>  
@@ -217,7 +221,9 @@
 <h2 id="分析2"><a href="#分析2" class="headerlink" title="分析2"></a>分析2</h2><h3 id="题目分析：-1"><a href="#题目分析：-1" class="headerlink" title="题目分析："></a>题目分析：</h3><p>从题目看似乎一下子想不到正解，这恰恰就证明了此题是动归。（滑稽</p>
 <h3 id="算法分析：-1"><a href="#算法分析：-1" class="headerlink" title="算法分析："></a>算法分析：</h3><p>动态规划，一看便是背包方面的问题，每一块水晶只有不取，放高塔或放低塔三种状态：<br>1.f[i][j]表示前i块水晶，高度差为j时，较矮的塔的高度，sum[i]表示前缀和<br>2.对于第i块水晶有四种操作：加在高塔上；加在低塔上，但仍为低塔；加在低塔上，成为高塔；不放这块水晶。<br>3.f[i][j]从f[i-1][h]推来，就要从以上四种情况中确定h<br>4.把f[i][j]初始化为负数，因为要保证f[i-1][h]这种情况是存在的，sum[]也是为了保证情况存在。</p>
 <h3 id="数据分析：-1"><a href="#数据分析：-1" class="headerlink" title="数据分析："></a>数据分析：</h3><p>太水，在动归面前显得更水了。</p>
-<h3 id="代码分析：-1"><a href="#代码分析：-1" class="headerlink" title="代码分析："></a>代码分析：</h3><pre style="color:#000000;background:#ffffff;"><span style="color:#004a43; ">#</span><span style="color:#004a43; ">include</span><span style="color:#800000; ">&lt;</span><span style="color:#40015a; ">bits/stdc++.h</span><span style="color:#800000; ">></span>
+<h3 id="代码分析：-1"><a href="#代码分析：-1" class="headerlink" title="代码分析："></a>代码分析：</h3><p><input id="code_pre3" class="code_button" type="button" onclick="open_code(3)" value="Code+"></p>
+<p><input id="code_re3" class="code_button" type="button" onclick="merge_code(3)" value="Code-" style="display:none;"></p>
+<pre id="code_set3" style="display:none;color:#000000;background:#ffffff;"><span style="color:#004a43; ">#</span><span style="color:#004a43; ">include</span><span style="color:#800000; ">&lt;</span><span style="color:#40015a; ">bits/stdc++.h</span><span style="color:#800000; ">></span>
 <span style="color:#800000; font-weight:bold; ">using</span> <span style="color:#800000; font-weight:bold; ">namespace</span> <span style="color:#666616; ">std</span><span style="color:#800080; ">;</span>
 
 <span style="color:#800000; font-weight:bold; ">const</span> <span style="color:#800000; font-weight:bold; ">int</span> up<span style="color:#808030; ">=</span><span style="color:#008c00; ">300</span><span style="color:#800080; ">;</span>
@@ -301,7 +307,7 @@
     </a>
   
   
-    <a href="/posts/关于图论的第k优解.html" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/posts/关于图论的第2优解.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">关于图论的第2优解</div>
       <i class="icon-circle-right"></i>
     </a>

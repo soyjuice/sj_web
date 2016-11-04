@@ -13,12 +13,12 @@
 正如最近的博文所述，也可以用多路归并解决。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于图论的第2优解">
-<meta property="og:url" content="/posts/关于图论的第k优解.html">
+<meta property="og:url" content="/posts/关于图论的第2优解.html">
 <meta property="og:site_name" content="SoyJuice的小站">
 <meta property="og:description" content="正常思路是spfa找最短路，再拆最短路上的边走spfa，保存最小值。
 (本来我准备以玛丽卡为例题，鬼知道它是拆完边后保存最大值，讲道理，就应该是最坏情况)
 正如最近的博文所述，也可以用多路归并解决。">
-<meta property="og:updated_time" content="2016-10-28T00:38:52.000Z">
+<meta property="og:updated_time" content="2016-11-04T03:21:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于图论的第2优解">
 <meta name="twitter:description" content="正常思路是spfa找最短路，再拆最短路上的边走spfa，保存最小值。
@@ -40,6 +40,8 @@
   <link href="//cdn.bootcss.com/offline-js/0.7.14/themes/offline-theme-chrome.css" rel="stylesheet"/>
   <!--动画效果-->
   <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet"/>
+  <!--代码合并-->
+  <script src="../js/merge.js"></script>
 </head>
 
 <body>
@@ -159,7 +161,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-关于图论的第k优解" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-关于图论的第2优解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -178,7 +180,9 @@
         <p>正常思路是spfa找最短路，再拆最短路上的边走spfa，保存最小值。</p>
 <p>(本来我准备以玛丽卡为例题，鬼知道它是拆完边后保存最大值，讲道理，就应该是最坏情况)</p>
 <p>正如最近的博文所述，也可以用多路归并解决。<br><a id="more"></a></p>
-<pre style="color:#000000;background:#ffffff;"><span style="color:#004a43; ">#</span><span style="color:#004a43; ">include</span><span style="color:#800000; ">&lt;</span><span style="color:#40015a; ">bits/stdc++.h</span><span style="color:#800000; ">></span>
+<p><input id="code_pre1" class="code_button" type="button" onclick="open_code(1)" value="Code+"></p>
+<p><input id="code_re1" class="code_button" type="button" onclick="merge_code(1)" value="Code-" style="display:none;"></p>
+<pre id="code_set1" style="display:none;color:#000000;background:#ffffff;"><span style="color:#004a43; ">#</span><span style="color:#004a43; ">include</span><span style="color:#800000; ">&lt;</span><span style="color:#40015a; ">bits/stdc++.h</span><span style="color:#800000; ">></span>
 <span style="color:#800000; font-weight:bold; ">using</span> <span style="color:#800000; font-weight:bold; ">namespace</span> <span style="color:#666616; ">std</span><span style="color:#800080; ">;</span>
 
 <span style="color:#800000; font-weight:bold; ">const</span> <span style="color:#800000; font-weight:bold; ">int</span> maxN<span style="color:#808030; ">=</span><span style="color:#008c00; ">1000</span><span style="color:#808030; ">+</span><span style="color:#008c00; ">5</span><span style="color:#808030; ">,</span>maxM<span style="color:#808030; ">=</span><span style="color:#008c00; ">1000000</span><span style="color:#808030; ">+</span><span style="color:#008c00; ">5</span><span style="color:#808030; ">,</span>maxK<span style="color:#808030; ">=</span><span style="color:#008c00; ">5</span><span style="color:#808030; ">,</span>INF<span style="color:#808030; ">=</span><span style="color:#008000; ">0x7F7F7F7F</span><span style="color:#800080; ">;</span>
@@ -243,7 +247,7 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/posts/关于图论的第k优解.html" class="archive-article-date">
+      <a href="/posts/关于图论的第2优解.html" class="archive-article-date">
   	<time datetime="2016-10-25T07:53:25.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-25</time>
 </a>
       
@@ -293,7 +297,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="关于图论的第k优解" data-title="关于图论的第2优解" data-url="/posts/关于图论的第k优解.html"></div>
+	<div class="ds-thread" data-thread-key="关于图论的第2优解" data-title="关于图论的第2优解" data-url="/posts/关于图论的第2优解.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

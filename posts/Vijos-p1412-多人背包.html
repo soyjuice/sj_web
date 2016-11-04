@@ -18,7 +18,7 @@
 <meta property="og:description" content="【描述】DD 和好朋友们要去爬山啦！他们一共有 K 个人，每个人都会背一个包。这些包的容量是相同的，都是 V。可以装进背包里的一共有 N 种物品，每种物品都有给定的体积和价值。
 在 DD 看来，合理的背包安排方案是这样的：
 每个人背包里装的物品的总体积恰等于包的容量。每个包里的每种物品最多只有一件，但两个不同的包中可以存在相同的物品。任意两个人，他们包里的物品清单不能完全相同。在满足以上要求的前提">
-<meta property="og:updated_time" content="2016-10-28T00:37:06.000Z">
+<meta property="og:updated_time" content="2016-11-04T03:16:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vijos P1412 多人背包">
 <meta name="twitter:description" content="【描述】DD 和好朋友们要去爬山啦！他们一共有 K 个人，每个人都会背一个包。这些包的容量是相同的，都是 V。可以装进背包里的一共有 N 种物品，每种物品都有给定的体积和价值。
@@ -40,6 +40,8 @@
   <link href="//cdn.bootcss.com/offline-js/0.7.14/themes/offline-theme-chrome.css" rel="stylesheet"/>
   <!--动画效果-->
   <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet"/>
+  <!--代码合并-->
+  <script src="../js/merge.js"></script>
 </head>
 
 <body>
@@ -189,7 +191,9 @@
 <p><strong>算法分析：</strong>首先，是每个有序表代表着什么。根据模板，每个有序表代表着一个状态（可能是容量，行列）的解集，不妨假设有序表f[V]代表容量为V时的解集{f(V,1),f(V,2)…f(V,k)}。</p>
 <p>那么，这个假设正确吗？答案是确定的，就像上一篇博文所说，最优k解的原理是多个有序表的合并，考虑到了所有的解，因而有序表首先要满足是包含所有的解或优于其它的解，这种假设显然是正确的。</p>
 <p>接下来就要考虑有序表的合并，这里就应该将上一篇博文的算法一般化。</p>
-<pre style="color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">void</span> <span style="color:#603000; ">merge</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span><span style="color:#808030; ">*</span> A<span style="color:#808030; ">,</span><span style="color:#800000; font-weight:bold; ">int</span><span style="color:#808030; ">*</span> B<span style="color:#808030; ">,</span><span style="color:#800000; font-weight:bold; ">int</span> C<span style="color:#808030; ">)</span>
+<p><input id="code_pre1" class="code_button" type="button" onclick="open_code(1)" value="Code+"></p>
+<p><input id="code_re1" class="code_button" type="button" onclick="merge_code(1)" value="Code-" style="display:none;"></p>
+<pre id="code_set1" style="display:none;color:#000000;background:#ffffff;"><span style="color:#800000; font-weight:bold; ">void</span> <span style="color:#603000; ">merge</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span><span style="color:#808030; ">*</span> A<span style="color:#808030; ">,</span><span style="color:#800000; font-weight:bold; ">int</span><span style="color:#808030; ">*</span> B<span style="color:#808030; ">,</span><span style="color:#800000; font-weight:bold; ">int</span> C<span style="color:#808030; ">)</span>
 <span style="color:#800080; ">{</span>
     q1<span style="color:#808030; ">=</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span>q2<span style="color:#808030; ">=</span><span style="color:#008c00; ">1</span><span style="color:#800080; ">;</span>
     <span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> i<span style="color:#808030; ">=</span><span style="color:#008c00; ">1</span><span style="color:#800080; ">;</span>i<span style="color:#808030; "><</span><span style="color:#808030; ">=</span>K<span style="color:#800080; ">;</span>i<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span>
@@ -204,7 +208,9 @@
 
 <p><strong>数据分析：</strong>1&lt;=K&lt;=50,0&lt;=V&lt;=5000数据过小。</p>
 <p><strong>代码分析：</strong></p>
-<pre style="color:#000000;background:#ffffff;"><span style="color:#004a43; ">#</span><span style="color:#004a43; ">include</span><span style="color:#800000; "><</span><span style="color:#40015a; ">bits/stdc++.h</span><span style="color:#800000; ">></span>
+<p><input id="code_pre2" class="code_button" type="button" onclick="open_code(2)" value="Code+"></p>
+<p><input id="code_re2" class="code_button" type="button" onclick="merge_code(2)" value="Code-" style="display:none;"></p>
+<pre id="code_set2" style="display:none;color:#000000;background:#ffffff;"><span style="color:#004a43; ">#</span><span style="color:#004a43; ">include</span><span style="color:#800000; "><</span><span style="color:#40015a; ">bits/stdc++.h</span><span style="color:#800000; ">></span>
 <span style="color:#800000; font-weight:bold; ">using</span> <span style="color:#800000; font-weight:bold; ">namespace</span> <span style="color:#666616; ">std</span><span style="color:#800080; ">;</span>
 
 <span style="color:#800000; font-weight:bold; ">const</span> <span style="color:#800000; font-weight:bold; ">int</span> maxK<span style="color:#808030; ">=</span><span style="color:#008c00; ">50</span><span style="color:#808030; ">+</span><span style="color:#008c00; ">5</span><span style="color:#808030; ">,</span>maxV<span style="color:#808030; ">=</span><span style="color:#008c00; ">5000</span><span style="color:#808030; ">+</span><span style="color:#008c00; ">5</span><span style="color:#808030; ">,</span>maxN<span style="color:#808030; ">=</span><span style="color:#008c00; ">200</span><span style="color:#808030; ">+</span><span style="color:#008c00; ">5</span><span style="color:#808030; ">,</span>INF<span style="color:#808030; ">=</span><span style="color:#008000; ">0x7F7F7F7F</span><span style="color:#800080; ">;</span>
@@ -273,7 +279,7 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/关于图论的第k优解.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/关于图论的第2优解.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
