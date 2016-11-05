@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="">
+  <title>贪心专练 | SoyJuice的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="硬币问题1.有1元、5元、10元、50元、100元与500元的硬币各C1、C5、C10、C50、C100、C500枚，现在要用这些硬币来支付A元，最少需要多少枚硬币？假定至少有支付方案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贪心专练">
+<meta property="og:url" content="/posts/贪心专练.html">
+<meta property="og:site_name" content="SoyJuice的小站">
+<meta property="og:description" content="硬币问题1.有1元、5元、10元、50元、100元与500元的硬币各C1、C5、C10、C50、C100、C500枚，现在要用这些硬币来支付A元，最少需要多少枚硬币？假定至少有支付方案。">
+<meta property="og:updated_time" content="2016-11-05T12:08:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贪心专练">
+<meta name="twitter:description" content="硬币问题1.有1元、5元、10元、50元、100元与500元的硬币各C1、C5、C10、C50、C100、C500枚，现在要用这些硬币来支付A元，最少需要多少枚硬币？假定至少有支付方案。">
+  
+  
+    <link rel="icon" href="/images/favicon/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+  <!--进度条效果-->
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
+  <!--离线加载效果-->
+  <script src="//cdn.bootcss.com/offline-js/0.7.14/offline.min.js"></script>
+  <link href="//cdn.bootcss.com/offline-js/0.7.14/themes/offline-language-english.css" rel="stylesheet"/>
+  <link href="//cdn.bootcss.com/offline-js/0.7.14/themes/offline-theme-chrome.css" rel="stylesheet"/>
+  <!--动画效果-->
+  <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet"/>
+  <!--代码合并-->
+  <script src="../js/merge.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/images/avatar/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soy Juice</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">A OIer&#39;s Site</p>
+		
+
+		<form action="/search/" method="get" style="text-align: center">
+    	<input type="text" class="st-default-search-input search" id="search" placeholder=" Search..." name="query" style="border-top: none;border-right: none;border-left: none;"/>
+		</form>
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/Test-Reports/">解题报告</a></li>
+	        
+				<li><a href="/teries/">娱乐</a></li>
+	        
+			</ul>
+		</nav>
+
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">全部</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/soyjuice" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/soyjuice" title="weibo">weibo</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Soy Juice</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/images/avatar/avatar.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soy Juice</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">A OIer&#39;s Site</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/Test-Reports/">解题报告</a></li>
+		        
+					<li><a href="/teries/">娱乐</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/soyjuice" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/soyjuice" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-贪心专练" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      贪心专练
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="硬币问题"><a href="#硬币问题" class="headerlink" title="硬币问题"></a>硬币问题</h2><p>1.有1元、5元、10元、50元、100元与500元的硬币各C<sub>1</sub>、C<sub>5</sub>、C<sub>10</sub>、C<sub>50</sub>、C<sub>100</sub>、C<sub>500</sub>枚，现在要用这些硬币来支付A元，最少需要多少枚硬币？假定至少有支付方案。<br><a id="more"></a><br>分析：尽可能多的使用大面值的硬币，因为同样的价值所需的硬币中，使用大面值一定少于使用小面值的数量（也许这些小面值还可以拼成一个大面值）。</p>
+<pre style="color:#000000;background:#ffffff;"><input id="code_pre1" class="code_button" type="button" onclick="open_code(1)" value="Code+"><input id="code_re1" class="code_button" type="button" onclick="merge_code(1)" value="Code-" style="display:none;">
+<div id="code_set1" style="display:none;"><span style="color:#800000; font-weight:bold; ">int</span> ans<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> i<span style="color:#808030; ">=</span><span style="color:#008c00; ">5</span><span style="color:#800080; ">;</span>i<span style="color:#808030; ">></span><span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>i<span style="color:#808030; ">-</span><span style="color:#808030; ">-</span><span style="color:#808030; ">)</span>
+<span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">int</span> t<span style="color:#808030; ">=</span><span style="color:#603000; ">min</span><span style="color:#808030; ">(</span>A<span style="color:#808030; ">/</span>V<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">,</span>C<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    A<span style="color:#808030; ">-</span><span style="color:#808030; ">=</span>t<span style="color:#808030; ">*</span>V<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+    ans<span style="color:#808030; ">+</span><span style="color:#808030; ">=</span>t<span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span></div></pre>
+
+<p>2.相似的选取最大值，比如UVa 11292 The Dargon of Loowater。</p>
+<h2 id="区间问题"><a href="#区间问题" class="headerlink" title="区间问题"></a>区间问题</h2><p>1.有n项工作，每项工作分别在s<sub>i</sub>时间开始，在t<sub>i</sub>时间结束。对于每项工作，你都可以选择参与与否，但必须全程参与，这意味着时间不能重叠。</p>
+<p>分析：每次选择时间结束最早的，在同等条件（仅仅是一个工作）下，选择结束最早的工作，因为完成一个工作后，剩下的时间越长，还可以做的工作就有可能会更多，就一定是最优。</p>
+<pre style="color:#000000;background:#ffffff;"><input id="code_pre2" class="code_button" type="button" onclick="open_code(2)" value="Code+"><input id="code_re2" class="code_button" type="button" onclick="merge_code(2)" value="Code-" style="display:none;">
+<div id="code_set2" style="display:none;"><span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> i<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>i<span style="color:#808030; ">&lt;</span>N<span style="color:#800080; ">;</span>i<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span>
+<span style="color:#800080; ">{</span>
+    itv<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>be<span style="color:#808030; ">=</span>S<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+    itv<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>en<span style="color:#808030; ">=</span>T<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+
+<span style="color:#800000; font-weight:bold; ">int</span> ans<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">,</span>t<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> i<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>i<span style="color:#808030; ">&lt;</span>N<span style="color:#800080; ">;</span>i<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">if</span><span style="color:#808030; ">(</span>t<span style="color:#808030; ">&lt;</span>itv<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>be<span style="color:#808030; ">)</span>
+<span style="color:#800080; ">{</span>
+    ans<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#800080; ">;</span>
+    t<span style="color:#808030; ">=</span>itv<span style="color:#808030; ">[</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">.</span>en<span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+<span style="color:#603000; ">printf</span><span style="color:#808030; ">(</span><span style="color:#800000; ">"</span><span style="color:#007997; ">%d</span><span style="color:#0f69ff; ">\n</span><span style="color:#800000; ">"</span><span style="color:#808030; ">,</span><span style="color:#808030; ">&amp;</span>ans<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+</div></pre>
+
+<p>另外，在证明贪心策略是最优解时，可以广泛的使用归纳法或是反证法（其实它更多用来证明贪心不是最优）。</p>
+<p>3.相似的同等条件下最多或最少，比如POJ 3069 Suruman’s Army、UVa 11729 Commando War。</p>
+<h2 id="字典序问题"><a href="#字典序问题" class="headerlink" title="字典序问题"></a>字典序问题</h2><p>1.给定长度为N且只有大写字母的字符串S，构造一个长度为N的字符串T，反复选择S的前后字母删除，放入T末尾，构造一个字典序最小的T。</p>
+<p>分析：尽可能选取字典序小的字母先放，如果前后相等，那么就选择可以较快取到小的字母的那一边。</p>
+<pre style="color:#000000;background:#ffffff;"><input id="code_pre3" class="code_button" type="button" onclick="open_code(3)" value="Code+"><input id="code_re3" class="code_button" type="button" onclick="merge_code(3)" value="Code-" style="display:none;">
+<div id="code_set3" style="display:none;"><span style="color:#800000; font-weight:bold; ">int</span> a<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#808030; ">,</span>b<span style="color:#808030; ">=</span>N<span style="color:#808030; ">-</span><span style="color:#008c00; ">1</span><span style="color:#800080; ">;</span>
+<span style="color:#800000; font-weight:bold; ">while</span><span style="color:#808030; ">(</span>a<span style="color:#808030; ">&lt;</span><span style="color:#808030; ">=</span>b<span style="color:#808030; ">)</span>
+<span style="color:#800080; ">{</span>
+    <span style="color:#800000; font-weight:bold; ">bool</span> left<span style="color:#808030; ">=</span><span style="color:#800000; font-weight:bold; ">false</span><span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">for</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">int</span> i<span style="color:#808030; ">=</span><span style="color:#008c00; ">0</span><span style="color:#800080; ">;</span>a<span style="color:#808030; ">+</span>i<span style="color:#808030; ">&lt;</span><span style="color:#808030; ">=</span>b<span style="color:#808030; ">-</span>i<span style="color:#800080; ">;</span>i<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">)</span> 
+        <span style="color:#800000; font-weight:bold; ">if</span><span style="color:#808030; ">(</span>S<span style="color:#808030; ">[</span>a<span style="color:#808030; ">+</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">&lt;</span>S<span style="color:#808030; ">[</span>b<span style="color:#808030; ">-</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">)</span>
+        <span style="color:#800080; ">{</span>
+            left<span style="color:#808030; ">=</span><span style="color:#800000; font-weight:bold; ">true</span><span style="color:#800080; ">;</span>
+            <span style="color:#800000; font-weight:bold; ">break</span><span style="color:#800080; ">;</span>
+        <span style="color:#800080; ">}</span>
+        <span style="color:#800000; font-weight:bold; ">else</span> <span style="color:#800000; font-weight:bold; ">if</span><span style="color:#808030; ">(</span>S<span style="color:#808030; ">[</span>a<span style="color:#808030; ">+</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">></span>S<span style="color:#808030; ">[</span>b<span style="color:#808030; ">-</span>i<span style="color:#808030; ">]</span><span style="color:#808030; ">)</span> <span style="color:#800000; font-weight:bold; ">break</span><span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">if</span><span style="color:#808030; ">(</span>left<span style="color:#808030; ">)</span> <span style="color:#603000; ">putchar</span><span style="color:#808030; ">(</span>S<span style="color:#808030; ">[</span>a<span style="color:#808030; ">+</span><span style="color:#808030; ">+</span><span style="color:#808030; ">]</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+    <span style="color:#800000; font-weight:bold; ">else</span> <span style="color:#603000; ">putchar</span><span style="color:#808030; ">(</span>S<span style="color:#808030; ">[</span>b<span style="color:#808030; ">-</span><span style="color:#808030; ">-</span><span style="color:#808030; ">]</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+<span style="color:#800080; ">}</span>
+<span style="color:#603000; ">putchar</span><span style="color:#808030; ">(</span><span style="color:#0000e6; ">'\n'</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span></div></pre>
+
+<p>2.相似的字典序问题，如POJ 3617 Best Cow Line。</p>
+<p>3.类比的两端加权取数，如Vijos 1378 矩阵取数游戏。</p>
+<h2 id="更多的贪心问题"><a href="#更多的贪心问题" class="headerlink" title="更多的贪心问题"></a>更多的贪心问题</h2><p>1.本文仅仅挑选了有代表性的且较为简单的贪心题，然而还有更多且复杂的题目，它们都需要好好地思考一下才能做对。</p>
+<p>2.更多的贪心问题，还有代表性的有Vijos 1097 合并果子(POJ 3253 Fence Repair)、UVa 11300 Spreading the Wealth、LA 3708 Graveyard，甚至一些动规问题都可以用贪心处理（当然能拿多少分还是得靠信仰）。</p>
+<p>3.本文所有的题目</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">来源&amp;题号</th>
+<th style="text-align:left">题目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">UVa 11292</td>
+<td style="text-align:left">The Dargon of Loowater</td>
+</tr>
+<tr>
+<td style="text-align:left">POJ 3069</td>
+<td style="text-align:left">Suruman’s Army</td>
+</tr>
+<tr>
+<td style="text-align:left">UVa 11729</td>
+<td style="text-align:left">Commando War</td>
+</tr>
+<tr>
+<td style="text-align:left">POJ 3617</td>
+<td style="text-align:left">Best Cow Line</td>
+</tr>
+<tr>
+<td style="text-align:left">Vijos 1378</td>
+<td style="text-align:left">矩阵取数游戏</td>
+</tr>
+<tr>
+<td style="text-align:left">Vijos 1097</td>
+<td style="text-align:left">合并果子</td>
+</tr>
+<tr>
+<td style="text-align:left">UVa 11300</td>
+<td style="text-align:left">Spreading the Wealth</td>
+</tr>
+<tr>
+<td style="text-align:left">LA 3708</td>
+<td style="text-align:left">Graveyard</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/posts/贪心专练.html" class="archive-article-date">
+  	<time datetime="2016-11-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/Test-Reports/">Test Reports</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/posts/搜索功能完成.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搜索功能完成</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="贪心专练" data-title="贪心专练" data-url="/posts/贪心专练.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"soyjuice"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015~2016 Soy Juice
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: false,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/PTGLFZ/" style="font-size: 13.33px;">PTGLFZ</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/动态规划/" style="font-size: 20px;">动态规划</a> <a href="/tags/图论/" style="font-size: 10px;">图论</a> <a href="/tags/多路归并/" style="font-size: 16.67px;">多路归并</a> <a href="/tags/字符串/" style="font-size: 10px;">字符串</a> <a href="/tags/数学/" style="font-size: 16.67px;">数学</a> <a href="/tags/暴力/" style="font-size: 13.33px;">暴力</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cybeird.tk/">Bird&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://muzhou.tk/">Muzhou&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/janis_z/">Janis&#39;s Blog</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.netcan666.com/">Netcan&#39;s Blog</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个苦逼的高中生，&lt;br/&gt;被高考鞭挞着前行，&lt;br/&gt;被NOI催促着死亡。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
